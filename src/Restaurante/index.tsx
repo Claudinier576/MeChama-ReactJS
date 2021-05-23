@@ -42,7 +42,7 @@ const Restaurante: React.FC<RestauranteProps> = () => {
   const [RestaurteData, setRestaurteData] = useState<RestauranteProp>();
   const restaurante: PropR = useParams();
   useEffect(() => {
-    fetch('http://192.168.0.10:4000/company/' + restaurante.restaurante).then(
+    fetch('http://tn-15mechama-com.umbler.net/company/' + restaurante.restaurante).then(
       response => response.json()).then(data => setRestaurteData(data))
 
 
@@ -55,7 +55,7 @@ const Restaurante: React.FC<RestauranteProps> = () => {
     <Container>
 
       {RestaurteData?.empresa ? <RestauranteInfo
-        img={'http://192.168.0.10:4000/images/' + RestaurteData?.empresa[0].LogoImg}
+        img={'http://tn-15mechama-com.umbler.net/images/' + RestaurteData?.empresa[0].LogoImg}
         description={'' + RestaurteData?.empresa[0].description}
         name={'' + RestaurteData?.empresa[0].name}
       /> :<div></div>}
@@ -68,7 +68,7 @@ const Restaurante: React.FC<RestauranteProps> = () => {
            id={product.id}
             description={product.description}
              value={product.value}
-              img={'http://192.168.0.10:4000/images/'+ product.img} />
+              img={'http://tn-15mechama-com.umbler.net/images/'+ product.img} />
          );
         }) : ''}
         </ProductsView>

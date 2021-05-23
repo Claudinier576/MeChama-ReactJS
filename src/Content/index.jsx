@@ -3,15 +3,14 @@ import { Container } from './styles';
 import { Route } from 'react-router-dom';
 import Restaurante from '../Restaurante';
 import Restaurantes from '../Restaurantes';
-
-// import { Container } from './styles';
-
-
-
-const Content: React.FC = () => {
+import ProductSearch from '../ProductSearch';
+import { Cart } from '../Cart';
 
 
- 
+const Content = () => {
+
+
+  
   return (
 
 
@@ -20,6 +19,23 @@ const Content: React.FC = () => {
       <Route exact path="/">
 
       <Restaurantes></Restaurantes>
+
+      </Route>
+      
+
+    
+      <Route exact path="/Search/:Search">
+
+      <ProductSearch/>
+
+      </Route>
+
+
+
+
+      <Route exact path="/Compras">
+
+      <Cart/>
 
       </Route>
 
@@ -41,5 +57,6 @@ const Content: React.FC = () => {
 
  );
 }
+
 
 export default Content;

@@ -9,10 +9,9 @@ export const Container = styled.div`
         justify-content: center;
         h1{
             color:var(--white);
-            margin-bottom: 5px;
+
         }
     a,a:visited,a:link{
-            margin-top: 5px;
             text-decoration:none;
             color: var(--gray);
     }

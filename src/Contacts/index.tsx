@@ -8,7 +8,6 @@ const Contacts: React.FC = () => {
       <a href="/">www.contact.Mechama.com</a>
       <a href="/">Whatsapp</a>
       <a href="/">Gmail</a>
-      <a href="/"> Trablhe conosco</a>
   </Container>;
 }
 

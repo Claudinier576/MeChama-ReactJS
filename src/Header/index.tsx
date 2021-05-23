@@ -1,5 +1,6 @@
 import React from 'react';
 import ButtonCategorys from '../ButtonCategorys';
+import  { CartIcon } from '../Cart';
 import SearchBar from '../SearchBar';
 import { Container, UserInfos } from './styles';
 
@@ -21,11 +22,15 @@ const Header: React.FC<PropsHeader> = ({userName, accontCredits}) => {
       </div>
 
       <SearchBar/> 
+      <div>
       <UserInfos>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="" />
+        <img className="UserImg" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="" />
         <h1>{userName}</h1>
         <h2>R${accontCredits}</h2>
+        <CartIcon/>
       </UserInfos>
+
+      </div>
     </Container>
 
 

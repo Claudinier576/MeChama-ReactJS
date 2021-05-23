@@ -22,7 +22,7 @@ const Restaurantes: React.FC = () => {
     const [RestaurteData,setRestaurteData] = useState<Restaurante>();
 
     useEffect(()=> {
-        fetch('http://192.168.0.10:4000').then(
+        fetch('http://tn-15mechama-com.umbler.net').then(
             response => response.json()).then(data =>  setRestaurteData(data))
     },[]);
 
@@ -31,8 +31,8 @@ const Restaurantes: React.FC = () => {
       <Container>
    { RestaurteData?.empresas.map((emp)=>{
      return(
-       <Menu href={'/restaurantes/'+emp.id}>
-         <img src={'http://192.168.0.10:4000/images/'+ emp.logo} alt="" />
+       <Menu href={'/restaurantes/'+emp.id} key={emp.id}>
+         <img src={'http://tn-15mechama-com.umbler.net/images/'+ emp.logo} alt="" />
          <h1>{emp.name}</h1>
          <h2>{emp.description}</h2>
        </Menu>

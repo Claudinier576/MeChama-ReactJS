@@ -23,11 +23,19 @@ export const UserInfos = styled.div`
   display: flex;
   flex-direction: row;
   min-width: 180px;
-  img{
+  img.UserImg{
       border-radius: 50%;
       background-color: var(--BGColor);
       padding:2px;
       border:1px solid var(--green);
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+  }
+  img{
+   
+      background-color: var(--BGColor);
+      padding:2px;
       width: 40px;
       height: 40px;
       object-fit: cover;

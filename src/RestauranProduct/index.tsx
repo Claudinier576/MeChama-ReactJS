@@ -15,7 +15,7 @@ interface Props{
 
 const RestauranProduct: React.FC<Props> = ({id,name,description,value,img}) => {
   return (
-      <Container>
+      <Container  key={id}>
           <img src={img} alt="" />
           <h1>{name}</h1>
           <h3>{description}</h3>
