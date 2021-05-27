@@ -4,8 +4,7 @@ export const Container = styled.div`
     
     display: flex;
     align-items: center;
-    
-width:100%;
+    width:100%;
 
 
 `;
@@ -18,6 +17,9 @@ padding: 0 10px 0 20px;
 border-radius: 7px;
 color: var(--white);
 background-color: transparent;
+text-transform: uppercase;
+
+
 
 &::placeholder{
         color: var(--gray);

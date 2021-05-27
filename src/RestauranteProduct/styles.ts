@@ -10,7 +10,7 @@ export const Container = styled.div`
     height: 180px;
     background-color: var(--BGColor);
     padding: 0px 10px 0 0;
-    border-radius: 25px;
+    border-radius: 15px;
     border: 3px solid #000;
     margin: 10px;
     text-align: center;
@@ -38,12 +38,12 @@ export const Container = styled.div`
     img{
         width:120px;
         height: 180px;
-        border-radius: 25px 0 0px 25px;
+        border-radius: 15px 0 0px 15px;
         object-fit: cover;
     }
     span{
         position: relative;
-        top:-65px;
+        top:-60px;
         left:90px;
         color: var(--green);
     }
