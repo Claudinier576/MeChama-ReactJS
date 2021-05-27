@@ -8,16 +8,11 @@ import Header from '../Header';
 
 const Layout: React.FC = () => {
   return (
-
     <Grid>
-    <Header userName="Claudinier Neto" accontCredits="250,00"></Header>
-
-    <Content/>
-   
-    <Footer/>
+      <Header userName="Claudinier Neto" accontCredits="250,00"></Header>
+      <Content/>
+      <Footer/>
     </Grid>
-
-
   );
 }
 

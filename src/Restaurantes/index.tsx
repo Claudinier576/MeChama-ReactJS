@@ -2,44 +2,35 @@ import React, { useEffect, useState } from 'react';
 import { Container, Menu } from './styles';
 
 interface Restaurante {
-    
-        empresas: [
-          {
-            id:number,
-            name:string,
-            description:string,
-            logo:string
-          },
-        ],
-      
-        
-      
+  empresas: [{
+      id:number,
+      name:string,
+      description:string,
+      logo:string
+    }], 
 }
-
 
 const Restaurantes: React.FC = () => {
 
-    const [RestaurteData,setRestaurteData] = useState<Restaurante>();
+  const [RestauranteData,setRestauranteData] = useState<Restaurante>();
 
-    useEffect(()=> {
-        fetch('http://192.168.0.10:4000').then(
-            response => response.json()).then(data =>  setRestaurteData(data))
-    },[]);
-
-    
+  useEffect(()=> {
+      fetch('http://tn-15mechama-com.umbler.net').then(
+          response => response.json()).then(data =>  setRestauranteData(data))
+  },[]);
+   
   return (
-      <Container>
-   { RestaurteData?.empresas.map((emp)=>{
-     return(
-       <Menu href={'/restaurantes/'+emp.id}>
-         <img src={'http://192.168.0.10:4000/images/'+ emp.logo} alt="" />
-         <h1>{emp.name}</h1>
-         <h2>{emp.description}</h2>
-       </Menu>
-     )
-   })}
-       
-      </Container>
+    <Container>
+      { RestauranteData?.empresas.map((emp) => {
+      return(
+        <Menu key={emp.id} href={'/restaurantes/'+emp.id}>
+          <img src={'http://tn-15mechama-com.umbler.net/images/'+ emp.logo} alt="" />
+          <h1>{emp.name}</h1>
+          <h2>{emp.description}</h2>
+        </Menu>
+      )
+      })}   
+    </Container>
   );
 }
 

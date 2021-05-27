@@ -6,39 +6,19 @@ import Restaurantes from '../Restaurantes';
 
 // import { Container } from './styles';
 
-
-
 const Content: React.FC = () => {
-
-
- 
   return (
-
-
     <Container>
 
       <Route exact path="/">
-
-      <Restaurantes></Restaurantes>
-
+        <Restaurantes></Restaurantes>
       </Route>
-
-
+      
       <Route exact path="/restaurantes/:restaurante">
-      
-
-      <Restaurante id=""></Restaurante>
-
-      
-
+        <Restaurante id=""></Restaurante>
       </Route>
-
-
 
     </Container>
-
-
-
  );
 }
 
