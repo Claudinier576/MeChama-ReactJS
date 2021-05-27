@@ -17,8 +17,9 @@ export const Container = styled.header`
   }
 
 `;
-export const UserInfos = styled.div`
+export const UserInfos = styled.a`
 
+  cursor: pointer;
   background-color: transparent;
   display: flex;
   flex-direction: row;

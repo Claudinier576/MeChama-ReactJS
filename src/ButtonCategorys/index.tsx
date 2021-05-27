@@ -17,9 +17,14 @@ const ButtonCategorys: React.FC = () => {
       Categorias
     </Button>
     <Itens className={ButtonState}>
-    <a href="/">Comida Chinesa</a>
-    <a href="/">Comida Mexicana</a>
-    <a href="/">Sushis</a>
+    <a href="/categoria/promocoes">Promoções do Dia</a>
+    <a href="/categoria/Combos">Combos</a>
+    <a href="/categoria/Chinesa">Comida Chinesa</a>
+    <a href="/categoria/Mexicana">Comida Mexicana</a>
+    <a href="/categoria/Japonesa">Comida Japonesa</a>
+    <a href="/categoria/Pizzas">Pizzas</a>
+    <a href="/categoria/Chocolates">Chocolates</a>
+    <a href="/categoria/Bebidas">Bebidas</a>
     </Itens>
     
 

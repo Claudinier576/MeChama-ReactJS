@@ -9,7 +9,7 @@ const Layout: React.FC = () => {
 
 
       <Grid>
-    <Header userName="Claudinier Neto"  accontCredits="250,00"></Header>
+    <Header user={{userName:"Claudinier Neto",  accontCredits:"250,00"}}></Header>
 
     <Content/>
    

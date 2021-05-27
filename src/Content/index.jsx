@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from './styles';
 import { Route } from 'react-router-dom';
 import Restaurante from '../Restaurante';
+import ConfigUser from '../ConfigUser';
 import Restaurantes from '../Restaurantes';
 import ProductSearch from '../ProductSearch';
 import { Cart } from '../Cart';
@@ -27,6 +28,13 @@ const Content = () => {
       <Route exact path="/Search/:Search">
 
       <ProductSearch/>
+
+      </Route>
+
+
+      <Route exact path="/User/me/:userCode">
+
+      <ConfigUser/>
 
       </Route>
 

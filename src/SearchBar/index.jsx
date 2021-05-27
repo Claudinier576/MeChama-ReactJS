@@ -5,8 +5,9 @@ import { Container, Input } from './styles';
 
 
 const ButtonCategorys = () => {
-
+  
   let history = useHistory();
+
   function  changeSearch(event){
 
     history.push('/Search/'+event.target.value);
