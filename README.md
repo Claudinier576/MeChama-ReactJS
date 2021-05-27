@@ -9,6 +9,7 @@ frontend made in ReactJS with typescript template, the main API = http://tn-15me
 Developers
 
 @Claudinier576 https://github.com/Claudinier576;
+@renatoruiz2607 https://github.com/renatoruiz2607;
 
 
 START 
