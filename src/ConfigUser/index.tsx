@@ -13,25 +13,13 @@ const ConfigUser: React.FC = () => {
   useEffect(() => {
     fetch('http://tn-15mechama-com.umbler.net/userConfig/' + parameters.userCode).then(
       response => response.json()).then(data => setUserData(data))
-
-
-
   }, [parameters]);
-
-
 
   return (
     <Container>
 
-      <Config>
-        
-      </Config>
-      
-      <HistoriPurchases>
-
-
-
-      </HistoriPurchases>
+      <Config></Config>
+      <HistoriPurchases></HistoriPurchases>
 
     </Container>
   );

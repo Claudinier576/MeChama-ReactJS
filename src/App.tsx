@@ -9,14 +9,14 @@ const App: React.FC = () => {
     <>
       <BrowserRouter>
         <Switch>
-
-          <Route path="/home">
-            <Layout/>
-            <GlobalStyled />
-          </Route>
-
+          
           <Route path="/login">
             <Login />
+          </Route>
+
+          <Route path="/">
+            <Layout/>
+            <GlobalStyled />
           </Route>
 
         </Switch>

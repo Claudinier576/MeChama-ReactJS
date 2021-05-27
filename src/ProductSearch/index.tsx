@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import RestauranteProduct from '../RestauranteProduct';
 import { Container, ProductsView } from './styles';
 
-
 interface PropR {
   Search: string;
 }
@@ -20,9 +19,7 @@ interface ProductProp {
       additionals: string
     },
   ]
-
 }
-
 
 const ProductSearch: React.FC = () => {
 
