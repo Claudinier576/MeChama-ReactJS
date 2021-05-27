@@ -4,8 +4,6 @@ import Layout from './Layout';
 import Login from './Login';
 import GlobalStyled from './GlobalStyled';
 
-// import { Container } from './styles';
-
 const App: React.FC = () => {
   return (
     <>

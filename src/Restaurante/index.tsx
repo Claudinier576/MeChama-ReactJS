@@ -50,17 +50,17 @@ const Restaurante: React.FC<RestauranteProps> = () => {
       /> :<div></div>}
 
       <ProductsView>
-      {RestauranteData?.products ? RestauranteData.products.map((product,key)=>{
-        return(
-        <RestauranteProduct 
-          name={product.name}
-          key={key}
-          id={product.id}
-          description={product.description}
-          value={product.value}
-          img={'http://tn-15mechama-com.umbler.net/images/'+ product.img} />
-        );
-      }) : ''}
+        {RestauranteData?.products ? RestauranteData.products.map((product,key)=>{
+          return(
+            <RestauranteProduct 
+              name={product.name}
+              key={key}
+              id={product.id}
+              description={product.description}
+              value={product.value}
+              img={'http://tn-15mechama-com.umbler.net/images/'+ product.img} />
+            );
+        }) : ''}
       </ProductsView>
            
     </Container>

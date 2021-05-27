@@ -1,16 +1,17 @@
 import React from 'react';
 import ButtonCategories from '../ButtonCategories';
+import  { CartIcon } from '../Cart';
 import SearchBar from '../SearchBar';
 import { Container, UserInfos } from './styles';
 
-// import { Container } from './styles';
-
 interface PropsHeader {
-  userName: string;
-  accontCredits: string;
+  user:{
+    userName: string;
+    accontCredits: string;
+  }
 }
 
-const Header: React.FC<PropsHeader> = ({userName, accontCredits}) => {
+const Header: React.FC<PropsHeader> = ({user}) => {
   return (
     <>
       <Container>
@@ -19,11 +20,14 @@ const Header: React.FC<PropsHeader> = ({userName, accontCredits}) => {
           <ButtonCategories />
         </div>
         <SearchBar/> 
-        <UserInfos>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="" />
-          <h1>{userName}</h1>
-          <h2>R${accontCredits}</h2>
-        </UserInfos>
+        <div>
+          <UserInfos href={'/User/me/'+user.userName.toUpperCase()}>
+            <img className="UserImg" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="" />
+            <h1>{user.userName}</h1>
+            <h2>R${user.accontCredits}</h2>
+          </UserInfos>
+        </div>
+        <CartIcon/>
       </Container>
     </>
   );

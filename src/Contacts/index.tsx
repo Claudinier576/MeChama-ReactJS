@@ -1,6 +1,5 @@
 import React from 'react';
-
- import { Container } from './styles';
+import { Container } from './styles';
 
 const Contacts: React.FC = () => {
   return (
@@ -9,9 +8,8 @@ const Contacts: React.FC = () => {
       <a href="/">www.contact.Mechama.com</a>
       <a href="/">Whatsapp</a>
       <a href="/">Gmail</a>
-      <a href="/"> Trablhe conosco</a>
     </Container>
-  );
+  )
 }
 
 export default Contacts;
