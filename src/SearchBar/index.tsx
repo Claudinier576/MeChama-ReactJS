@@ -8,7 +8,7 @@ const ButtonCategorys = () => {
   
   let history = useHistory();
 
-  function  changeSearch(event){
+  function  changeSearch(event:any){
 
     history.push('/Search/'+event.target.value);
 

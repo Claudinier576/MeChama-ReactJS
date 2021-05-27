@@ -3,9 +3,7 @@ import { useParams } from 'react-router-dom';
 import RestauranProduct from '../RestauranProduct';
 import { Container, ProductsView } from './styles';
 
-interface RestauranteProps {
-  id: string;
-}
+
 interface PropR {
   Search: string;
 }
@@ -26,7 +24,7 @@ interface ProductProp {
 }
 
 
-const ProductSearch: React.FC<RestauranteProps> = () => {
+const ProductSearch: React.FC = () => {
 
   const [ProductsData, setProductsData] = useState<ProductProp>();
   const Products: PropR = useParams();
