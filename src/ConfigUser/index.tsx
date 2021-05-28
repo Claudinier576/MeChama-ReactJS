@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Container,HistoriPurchases,Config } from './styles';
+import { Container,HistoriPurchases,Config, ItemPurchase } from './styles';
 
 
 interface UserDataProps
@@ -65,7 +64,16 @@ const ConfigUser: React.FC = () => {
       <Config><h1>{UserData.userinfo?.name}</h1></Config>
       <HistoriPurchases>{UserData.purchaseHistory?.map((item : ItemHistoryProps,i:any) => {
 
-        return (<h1 key={i}> {item.companyName} </h1>)
+        return (<ItemPurchase key={i}>
+          <h1 className="title">{item.companyName}</h1>
+          <h2 className="nameProduct">{item.productName} {item.productQuantity}x</h2>
+          <h3 className="value">R$ {item.productValue}</h3>
+          <p className="Date">{item.productDate}</p>
+        
+        
+        
+        
+        </ItemPurchase>)
         
       })}</HistoriPurchases>
 

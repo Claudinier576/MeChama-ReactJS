@@ -30,6 +30,8 @@ export const HistoriPurchases = styled.div`
     grid-area: HUP;
     overflow-y: scroll;
     min-height: 195px;
+    display: flex;
+    flex-direction: column;
 
     ::-webkit-scrollbar {
         width:8px;
@@ -43,6 +45,47 @@ export const HistoriPurchases = styled.div`
     }
 
 `
+export const ItemPurchase = styled.div`
+
+    display: grid;
+    margin: 5px;
+    border: 2px solid black;
+    border-radius: 15px;
+    
+    color: var(--white);
+    background-color: var(--BGColor);
+    padding:8px;
+
+    grid-template-columns:  auto auto auto;
+    grid-template-rows:  auto auto auto;
+    grid-template-areas: 
+        'EMP EMP DATE'
+        'PROD PROD Value';
+ 
+    
+
+     & .title{
+        margin-right: 15px;
+        grid-area: EMP;
+    }
+     & .nameProduct{
+    
+        grid-area: PROD;
+    }
+     & .QNTT{
+    
+        grid-area: QNT;
+    }
+    & .value {
+        grid-area: Value;
+        color: var(--green);
+    }
+    & .Date {
+
+        grid-area: DATE;
+    }
+
+`;
 export const Config = styled.div` 
 
      background-color:var(--BGContent);
