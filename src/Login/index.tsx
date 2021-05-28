@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router'
 import { Container, Body, TransparentLayer, GlobalStyle } from './styles';
 import LoadRandomPicture from './backgroundImage.jsx';
 import api from '../services/api'
@@ -6,18 +7,26 @@ import api from '../services/api'
 
 const Login: React.FC = () => {
 
+  let history = useHistory()
+
   const [data, setData] = useState({
     email: "",
     password: ""
   })
 
-  function submit(e:any){
+  async function submit(e:any){
     e.preventDefault()
-    api.post("/login", {
+    await api.post("/login", {
       email: data.email,
       password: data.password
     }).then(res=>{
-      console.log(res.data)
+      if(!res.data.errorLogin){
+        console.log(res)
+        history.push("/")
+      }else {
+        console.log(res)
+        history.push("/login")
+      }
     })
   }
 
