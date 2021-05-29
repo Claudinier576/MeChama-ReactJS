@@ -21,10 +21,8 @@ const Login: React.FC = () => {
       password: data.password
     }).then(res=>{
       if(!res.data.errorLogin){
-        console.log(res)
         history.push("/")
       }else {
-        console.log(res)
         history.push("/login")
       }
     })
@@ -34,7 +32,6 @@ const Login: React.FC = () => {
     const newData:any = {...data}
     newData[e.target.id] = e.target.value
     setData(newData)
-    console.log(newData)
   }
   
   return (
