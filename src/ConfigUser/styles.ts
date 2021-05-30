@@ -93,6 +93,24 @@ export const Config = styled.div`
 
         overflow-y: scroll;
 
+        input {
+            display: none;
+        }
+
+
+        & .Card {
+            color: var(--white);
+            display: flex;
+            flex-wrap: wrap;
+            padding: 15px;
+
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            
+
+        }
+
     ::-webkit-scrollbar {
         width:8px;
     }
@@ -103,11 +121,17 @@ export const Config = styled.div`
     ::-webkit-scrollbar-track {
         background-color: var(--BGColor);
     }
+`
+export const Photo = styled.img` 
 
-
-    
-
-
-
+    border-radius: 50%;
+    cursor: pointer;
+    width:125px;
+    height:125px;
+    object-fit: cover;
+    margin: 15px;
+    margin-top:0;
+       
+   
 `
 

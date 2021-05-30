@@ -17,7 +17,8 @@ const Login: React.FC = () => {
       email: data.email,
       password: data.password
     }).then(res=>{
-      console.log(res.data)
+      localStorage.setItem('tokenUserJWT',res.data)
+      
     })
   }
 

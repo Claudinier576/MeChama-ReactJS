@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Container,HistoriPurchases,Config, ItemPurchase } from './styles';
+import { Container,HistoriPurchases,Config, ItemPurchase, Photo } from './styles';
 
 
 interface UserDataProps
@@ -56,12 +56,24 @@ const ConfigUser: React.FC = () => {
     callAPI();
 
   
-  }, []);
+  }, [DataLocalStorage]);
 
   return (
     <Container>
 
-      <Config><h1>{UserData.userinfo?.name}</h1></Config>
+      <Config>
+        <div className="Card">
+        <label htmlFor="Photo">
+        <Photo src={"http://tn-15mechama-com.umbler.net/images/"+UserData.userinfo?.imgPerfile}  alt=""/>
+        </label>
+        <input type="file"  name="Photo" id="Photo" accept="image/*"  />
+        <h1>{UserData.userinfo?.name}</h1>
+        <h1>{UserData.userinfo?.email}</h1>
+        </div>
+
+
+
+      </Config>
       <HistoriPurchases>{UserData.purchaseHistory?.map((item : ItemHistoryProps,i:any) => {
 
         return (<ItemPurchase key={i}>
