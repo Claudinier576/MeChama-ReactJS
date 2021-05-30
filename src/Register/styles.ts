@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 
 const RegisterStyle = styled.div`
@@ -49,6 +48,7 @@ const RegisterStyle = styled.div`
   .line-align {
     width: 85%;
     display: flex;
+    line-height: 20px;
   }
 
   .input-align {
@@ -71,6 +71,8 @@ const RegisterStyle = styled.div`
     text-align-last: center;
     border-radius: 4px;
     border: 1px solid;
+    height: 20px;
+    margin-left: 51px;
   }
 
     .select-align:focus-visible{
