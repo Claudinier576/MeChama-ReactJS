@@ -41,6 +41,7 @@ const Container = styled.div`
         display: flex;
         margin: 0 auto;
         flex-direction: column;
+        color: black;
     }
 
     input{
@@ -51,7 +52,7 @@ const Container = styled.div`
         top: 5%;
         position: absolute;
         padding: 15px;
-        background-color: #292b2f;
+        background-color: #1a1d2d;
         border-radius: 100%;
         box-shadow: 0px 0px 8px 4px black;
     }
@@ -108,9 +109,7 @@ const Container = styled.div`
     }
 
     .submit-style {
-        border: 0;
         background-color: #d21f3c;
-        display: block;
         margin: 20px auto;
         text-align: center;
         border: 2px solid #d21f3c;
@@ -202,7 +201,7 @@ const Container = styled.div`
     }
 
     .line {
-        margin: 20px auto;
+        margin: 15px;
     }
 `
 

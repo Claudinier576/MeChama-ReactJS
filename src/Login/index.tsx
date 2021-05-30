@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router'
 import { Container, Body, TransparentLayer, GlobalStyle } from './styles';
 import LoadRandomPicture from './backgroundImage.jsx';
 import api from '../services/api'
@@ -6,19 +7,29 @@ import api from '../services/api'
 
 const Login: React.FC = () => {
 
+  let history = useHistory()
+
   const [data, setData] = useState({
     email: "",
     password: ""
   })
 
-  function submit(e:any){
+  async function submit(e:any){
     e.preventDefault()
-    api.post("/login", {
+    await api.post("/login", {
       email: data.email,
       password: data.password
     }).then(res=>{
-      localStorage.setItem('tokenUserJWT',res.data)
-      
+
+     
+
+      if(!res.data.errorLogin){
+         localStorage.setItem('tokenUserJWT',res.data)
+        history.push("/")
+      }else {
+        history.push("/login")
+      }
+
     })
   }
 
@@ -26,7 +37,6 @@ const Login: React.FC = () => {
     const newData:any = {...data}
     newData[e.target.id] = e.target.value
     setData(newData)
-    console.log(newData)
   }
   
   return (
@@ -44,9 +54,9 @@ const Login: React.FC = () => {
             <input type="submit" name="" value="Entrar" className="submit-style" />
             <a href="/register" className="forgot">Cadastre-se</a>
             <ul className="social-network social-circle"> 
-              <li><a href="#" className="icoFacebook" title="Facebook"><img src={"/Images/Login/facebookLogo.png"} alt="facebookLogo" className="facebookImg" /></a></li>
-              <li><a href="#" className="icoTwitter" title="Twitter"><img src={"/Images/Login/twitterLogo.png"} alt="twitterLogo" className="twitterImg" /></a></li>
-              <li><a href="#" className="icoGoogle" title="Google +"><img src={"/Images/Login/googleLogo.png"} alt="googleLogo" className="googleImg" /></a></li>
+              <li><a href="/login" className="icoFacebook" title="Facebook"><img src={"/Images/Login/facebookLogo.png"} alt="facebookLogo" className="facebookImg" /></a></li>
+              <li><a href="/login" className="icoTwitter" title="Twitter"><img src={"/Images/Login/twitterLogo.png"} alt="twitterLogo" className="twitterImg" /></a></li>
+              <li><a href="/login" className="icoGoogle" title="Google +"><img src={"/Images/Login/googleLogo.png"} alt="googleLogo" className="googleImg" /></a></li>
             </ul>
           </form>
         </Body>
