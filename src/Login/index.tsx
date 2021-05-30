@@ -49,9 +49,9 @@ const Login: React.FC = () => {
             <input type="submit" name="" value="Entrar" className="submit-style" />
             <a href="/register" className="forgot">Cadastre-se</a>
             <ul className="social-network social-circle"> 
-              <li><a href="#" className="icoFacebook" title="Facebook"><img src={"/Images/Login/facebookLogo.png"} alt="facebookLogo" className="facebookImg" /></a></li>
-              <li><a href="#" className="icoTwitter" title="Twitter"><img src={"/Images/Login/twitterLogo.png"} alt="twitterLogo" className="twitterImg" /></a></li>
-              <li><a href="#" className="icoGoogle" title="Google +"><img src={"/Images/Login/googleLogo.png"} alt="googleLogo" className="googleImg" /></a></li>
+              <li><a href="/login" className="icoFacebook" title="Facebook"><img src={"/Images/Login/facebookLogo.png"} alt="facebookLogo" className="facebookImg" /></a></li>
+              <li><a href="/login" className="icoTwitter" title="Twitter"><img src={"/Images/Login/twitterLogo.png"} alt="twitterLogo" className="twitterImg" /></a></li>
+              <li><a href="/login" className="icoGoogle" title="Google +"><img src={"/Images/Login/googleLogo.png"} alt="googleLogo" className="googleImg" /></a></li>
             </ul>
           </form>
         </Body>
