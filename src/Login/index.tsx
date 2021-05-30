@@ -20,11 +20,16 @@ const Login: React.FC = () => {
       email: data.email,
       password: data.password
     }).then(res=>{
+
+     
+
       if(!res.data.errorLogin){
+         localStorage.setItem('tokenUserJWT',res.data)
         history.push("/")
       }else {
         history.push("/login")
       }
+
     })
   }
 
