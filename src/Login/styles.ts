@@ -1,6 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components"
 
-
 const GlobalStyle = createGlobalStyle`
     body {
         margin: 0;
@@ -11,7 +10,11 @@ const GlobalStyle = createGlobalStyle`
 `
 
 interface BodyProps {
-    backgroundImage: string
+    backgroundImage: any
+}
+
+interface InvalidAlertProps {
+    errorLogin: any
 }
 
 const Body = styled.div<BodyProps>`
@@ -21,6 +24,18 @@ const Body = styled.div<BodyProps>`
     background-size: cover !important;
     background-repeat: no-repeat;
     background: ${(props) => props.backgroundImage ? "url(" + props.backgroundImage + ") no-repeat" : null};
+`
+
+const InvalidAlert = styled.div<InvalidAlertProps>`
+    width: 109%;
+    height: 60px;
+    background-color: #c74a4e;
+    border-radius: 4px;
+    margin: -18px;
+    display: ${(props) => props.errorLogin ? "flex" : "none"};
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
 `
 
 const TransparentLayer = styled.div`
@@ -34,7 +49,6 @@ const TransparentLayer = styled.div`
 `
 
 const Container = styled.div`
-
     form{
         text-align: center;
         align-items: center;
@@ -48,6 +62,11 @@ const Container = styled.div`
         text-align: center;
     }
 
+    .logoImg {
+        width: 50px;
+        position: relative;
+    }
+
     .logoBackground {
         top: 5%;
         position: absolute;
@@ -57,15 +76,21 @@ const Container = styled.div`
         box-shadow: 0px 0px 8px 4px black;
     }
 
-    .logoImg {
-        width: 50px;
-        position: relative;
-    }
+        @media (max-width:600px){
+            .logoBackground{
+                left: 42%
+            }
+        }
+        @media (max-width:415px){
+            .logoBackground{
+                left: 40%
+            }
+        }
 
     .box {
         top: 5%;
         padding: 20px;
-        width: 28%;
+        width: 30%;
         background-color: white;
         text-align: center;
         position: absolute;
@@ -76,6 +101,45 @@ const Container = styled.div`
         border-radius: 4px;
     }
 
+        @media (max-width:1200px){
+            .box{
+                width: 35%;
+            }
+        }
+        @media (max-width:1000px){
+            .box{
+                width: 40%;
+            }
+        }
+        @media (max-width:800px){
+            .box{
+                width: 45%;
+            }
+        }
+        @media (max-width:715px){
+            .box{
+                width: 50%;
+            }
+        }
+        @media (max-width:650px){
+            .box{
+                width: 55%;
+            }
+        }
+        @media (max-width:600px){
+            .box{
+                top: 27%;
+                right: 0;
+                left: 52%;
+            }
+        }
+        @media (max-width:450px){
+            .box{
+                width: 75%;
+                left: 52%;
+            }
+        }
+        
     .slogan {
         margin-top: 30px;
         opacity: 0.7;
@@ -98,9 +162,20 @@ const Container = styled.div`
         outline: none;
         border-radius: 30px;
     }
-
-        .input-style:focus {
-            width: 340px;
+        @media (min-width: 900px){
+            .input-style:focus {
+                width: 340px;
+            }
+        }
+        @media (min-width: 590px){
+            .input-style:focus {
+                width: 300px;
+            }
+        }
+        @media (min-width: 400px){
+            .input-style:focus {
+                width: 250px;
+            }
         }
 
     .forgot {
@@ -125,24 +200,19 @@ const Container = styled.div`
             border: 2px solid black;
         }
 
-    .invalid-alert {
-        height: 60px;
-        background-color: #c74a4e;
-        border-radius: 4px;
-        margin: -18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0.9;
-    }
-
     ul.social-network {
         list-style: none;
         display: inline-flex;
         padding: 0;
         justify-content: space-between;
-        width: 50%;
+        width: 60%;
     }
+
+        @media (max-width: 350px) {
+            ul.social-network {
+                width: 70%;
+            }
+        }
 
     .facebookImg {
         width: 25%;
@@ -205,4 +275,4 @@ const Container = styled.div`
     }
 `
 
-export { Body, Container, TransparentLayer, GlobalStyle }
+export { Body, Container, TransparentLayer, GlobalStyle, InvalidAlert }

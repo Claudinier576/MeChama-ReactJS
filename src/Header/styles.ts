@@ -1,63 +1,71 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Container = styled.header`
-  
   grid-area: H;
   background-color: var(--BGColor);
   display: flex;
   justify-content: space-between;
   align-items:center;
-  img{
-    width: 40px;
-      height: 40px;
-      margin-left: 5px;
-  }
+  padding: 10px;
+  
   .oneDiv{
     display: flex;
   }
 
-`;
-export const UserInfos = styled.a`
+  .logo {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-self: center;
+    padding-right: 3px;
+  }
 
+  @media (max-width:600px) {
+    .logo {
+      width: 30px;
+      height: 30px;
+    }
+    img {
+      width: 30px!important;
+      height: 30px!important;
+    }
+  }
+`
+export const UserInfos = styled.a`
   cursor: pointer;
-  background-color: transparent;
   display: flex;
-  flex-direction: row;
   min-width: 180px;
-  img.UserImg{
-      border-radius: 50%;
-      background-color: var(--BGColor);
-      padding:2px;
-      border:1px solid var(--green);
-      width: 40px;
-      height: 40px;
-      object-fit: cover;
+  text-align: center;
+  align-items: center;
+  
+  .UserImg {
+    border-radius: 50%;
+    background-color: var(--BGColor);
+    padding:2px;
+    border:1px solid var(--green);
+    width: 40px;
+    object-fit: cover;
   }
-  img{
-   
-      background-color: var(--BGColor);
-      padding:2px;
-      width: 40px;
-      height: 40px;
-      object-fit: cover;
-  }
-  h1{
-    margin-left: 5px;
+
+  h1 {
+    margin-right: 5%;
+    margin-left: 5%;
     font-size: 14px;
-    display: block;
-    position: relative;
-    top: 10px;
     color: var(--white);
   }
-  h2{
-      font-size:12px;
-      display: block;
-      position: relative;
-      top: 25px;
-      left: 0;
-      color: var(--gray);
+    
+  h2 {
+    font-size:12px;
+    color: var(--gray);
   }
 
-`;
+  @media (max-width: 500px) {
+    min-width: 0;
+    h1, h2 {
+      display: none;
+      width: 0;
+    }
+  }
+`
 
 
