@@ -1,31 +1,28 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const Container = styled.div`
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+        
+    h1{
+        color:var(--white);
+    }
 
-        display:flex;
-        flex-direction:column;
-        align-items: center;
-        margin-left: 15px;
-        justify-content: center;
-        h1{
-            color:var(--white);
-
-        }
     a,a:visited,a:link{
-            text-decoration:none;
-            color: var(--gray);
+        text-decoration:none;
+        color: var(--gray);
     }
 
     @media(max-width:  720px){
-   
         max-width: 200px;
         font-size: 12px;
     }
     @media(min-width:  720px){
         font-size: 14px;
         max-width: 280px;
-        
     }
-
-
-`;
+`

@@ -3,8 +3,11 @@ import { Container, Body, TransparentLayer, GlobalStyle } from '../Login/styles'
 import LoadRandomPicture from '../Login/backgroundImage';
 import { RegisterStyle } from '../Register/styles'
 import api from '../services/api'
+import { useHistory } from 'react-router'
 
 const RegisterComp: React.FC = () => {
+
+  let history = useHistory()
 
   const [data, setData] = useState({
     fullname: "",
@@ -25,8 +28,7 @@ const RegisterComp: React.FC = () => {
       cpassword: data.cpassword,
       phone: data.phone
     }).then(res=>{
-      // console.log(res)
-      // history.push("/login")
+      history.push("/login")
     })
   }
 
@@ -34,7 +36,6 @@ const RegisterComp: React.FC = () => {
     const newData:any = {...data}
     newData[e.target.id] = e.target.value
     setData(newData)
-    // console.log(newData)
   }
 
   return (
@@ -44,34 +45,34 @@ const RegisterComp: React.FC = () => {
         <RegisterStyle>
           <Body backgroundImage={ LoadRandomPicture() }>
             <TransparentLayer />
-            <a href="/home" className="logoBackground"><img src="/images/startup (1).png" alt="logo" className="logoImg" /></a>
+            <a href="/" className="logoBackground"><img src="/images/startup (1).png" alt="logo" className="logoImg" /></a>
             <div className="card-body">
-              <form onSubmit={(e)=>submit(e)} method="POST" className="box">
+              <form onSubmit={submit} method="POST" className="box">
                 <h1>Empresa!</h1>
                 <div className="form-align">
                   <div className="line line-align">
-                    <label className="label-align">Nome: </label>
-                    <input onChange={(e)=>handle(e)} value={data.fullname} className="input-align" type="text" placeholder="Nome da Empresa" id="fullname" name="fullname" required />
+                    <label className="label-align" htmlFor="fullname">Nome: </label>
+                    <input onChange={handle} value={data.fullname} className="input-align" type="text" placeholder="Nome da Empresa" id="fullname" name="fullname" required />
                   </div>
                   <div className="line line-align">
-                    <label className="label-align">CNPJ: </label>
-                    <input onChange={(e)=>handle(e)} value={data.cnpj} className="input-align" type="text" placeholder="00.000.000/0000-00" id="cnpj" name="cnpj" required />
+                    <label className="label-align" htmlFor="cnpj">CNPJ: </label>
+                    <input onChange={handle} value={data.cnpj} className="input-align" type="text" placeholder="00.000.000/0000-00" id="cnpj" name="cnpj" required />
                   </div>
                   <div className="line line-align">
-                    <label className="label-align">Email: </label>
-                    <input onChange={(e)=>handle(e)} value={data.email} className="input-align" type="email" id="email" placeholder="Email" name="email" required />
+                    <label className="label-align" htmlFor="email">Email: </label>
+                    <input onChange={handle} value={data.email} className="input-align" type="email" id="email" placeholder="Email" name="email" required />
                   </div>
                   <div className="line line-align">
-                    <label className="label-align">Senha: </label>
-                    <input onChange={(e)=>handle(e)} value={data.password} className="input-align" type="password" id="password" placeholder="Senha" name="password" required />
+                    <label className="label-align" htmlFor="password">Senha: </label>
+                    <input onChange={handle} value={data.password} className="input-align" type="password" id="password" placeholder="Senha" name="password" required />
                   </div>
                   <div className="line line-align">
-                    <label className="label-align">Confirmar: </label>
-                    <input onChange={(e)=>handle(e)} value={data.cpassword} className="input-align" id="cpassword" type="password" placeholder="Confirmar Senha" name="cpassword" required />
+                    <label className="label-align" htmlFor="cpassword">Confirmar: </label>
+                    <input onChange={handle} value={data.cpassword} className="input-align" id="cpassword" type="password" placeholder="Confirmar Senha" name="cpassword" required />
                   </div>
                   <div className="line line-align">
-                    <label className="label-align">Número: </label>
-                    <input onChange={(e)=>handle(e)} value={data.phone} className="input-align" id="phone" type="text" placeholder="(**)9****-****" name="phone" required />
+                    <label className="label-align" htmlFor="phone">Número: </label>
+                    <input onChange={handle} value={data.phone} className="input-align" id="phone" type="text" placeholder="(**)9****-****" name="phone" required />
                   </div>  
                 </div>
                 <div className="line">

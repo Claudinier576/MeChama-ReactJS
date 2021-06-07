@@ -1,30 +1,29 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Container = styled.div`
-    
-    display: flex;
-    align-items: center;
-    width:100%;
+    width:69%;
 
-
-`;
+    @media (max-width:600px) {
+        width: 90%;
+    }
+`
 
 export const Input = styled.input`
+    width:100%;
+    padding: 0 10px;
+    color: var(--white);
+    background-color: transparent;
+    text-transform: uppercase;
 
-width:100%;
-height: 44px;
-padding: 0 10px 0 20px;
-border-radius: 7px;
-color: var(--white);
-background-color: transparent;
-text-transform: uppercase;
-
-
-
-&::placeholder{
+    &::placeholder{
         color: var(--gray);
-}
-`;
+    }
+
+    @media (max-width: 560px) {
+        font-size: 10px;
+        padding: 0;
+    }
+`
 
 
 

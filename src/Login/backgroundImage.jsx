@@ -7,8 +7,7 @@ let backgroundImageArray = [
     "/Images/Login/LoginBackground/loginBackgroundImage8.jpg", 
     "/Images/Login/LoginBackground/loginBackgroundImage9.jpg"
 ]
-
+    
 const LoadRandomPicture = () => backgroundImageArray[Math.floor(Math.random() * backgroundImageArray.length)]
-  
-
+        
 export default LoadRandomPicture

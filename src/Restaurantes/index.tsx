@@ -24,8 +24,10 @@ const Restaurantes: React.FC = () => {
       { RestauranteData?.empresas.map((emp) => {
         return(
           <Menu key={emp.id} href={'/restaurantes/'+emp.id}>
-            <img src={'http://tn-15mechama-com.umbler.net/images/'+ emp.logo} alt="" />
-            <h1>{emp.name}</h1>
+            <div>
+              <img src={'http://tn-15mechama-com.umbler.net/images/'+ emp.logo} alt="compLogoImg" />
+              <h1>{emp.name}</h1>
+            </div>
             <h2>{emp.description}</h2>
           </Menu>
         )

@@ -51,6 +51,12 @@ const RegisterStyle = styled.div`
     line-height: 20px;
   }
 
+    @media (max-width:600px) {
+      .line-align {
+        width: 100%;
+      }
+    }
+
   .input-align {
     flex: 1;
     outline-color: #1a1d2d;
