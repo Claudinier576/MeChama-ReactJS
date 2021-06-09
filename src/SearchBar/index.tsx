@@ -5,14 +5,14 @@ import { Container, Input } from './styles';
 const SearchBar = () => {
   let history = useHistory();
   function  changeSearch(event:any){
-    history.push('/Search/'+event.target.value);
+    history.push('/Search/'+event.target.value)
     if(event.target.value.toString() < 1){
       history.push('/');
     }
   }
   return (
     <Container>
-      <Input type="text" placeholder="Pesquise por produto..." onChange={changeSearch}/>
+      <Input placeholder="Pesquisar produto..." onChange={changeSearch}/>
     </Container>
   );
 }

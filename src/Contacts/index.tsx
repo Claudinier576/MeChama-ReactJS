@@ -5,9 +5,9 @@ const Contacts: React.FC = () => {
   return (
     <Container>
       <h1>Contato</h1>
-      <a href="/">www.contact.Mechama.com</a>
-      <a href="/">Whatsapp</a>
-      <a href="/">Gmail</a>
+      <a href="/">Mechama.com/contato</a>
+      <a href="https://web.whatsapp.com/send?phone=5513981409223" target="_blank">Whatsapp</a>
+      <a href="mailto:suportemechama01@gmail.com">Gmail</a>
     </Container>
   )
 }
