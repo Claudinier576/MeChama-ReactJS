@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, HistoriPurchases, Config, ItemPurchase, Photo } from './styles';
 import ReactModal from 'react-modal';
 import api from '../services/api';
+import { withRouter } from 'react-router-dom'
 
 
 interface UserDataProps {
@@ -280,4 +281,4 @@ const ConfigUser: React.FC = () => {
   );
 }
 
-export default ConfigUser;
+export default withRouter(ConfigUser);

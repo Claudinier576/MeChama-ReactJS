@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container } from './styles';
 import { Route } from 'react-router-dom';
 import Restaurante from '../Restaurante';
 import ConfigUser from '../ConfigUser';
 import Restaurantes from '../Restaurantes';
 import ProductSearch from '../ProductSearch';
-import { Cart } from '../Cart';
+import Cart from '../Cart';
+import ProtectedRoute from '../services/protectedRoute'
 
 const Content = () => {
+
+  const [isAuth, setIsAuth] = useState(false)
+  const [isLogged, setIsLogged]= useState(false)
 
   return (
     <Container>
@@ -20,13 +24,9 @@ const Content = () => {
        <ProductSearch/>
       </Route>
 
-      <Route exact path="/User/me/:userCode">
-        <ConfigUser/>
-      </Route>
+      <ProtectedRoute path="/User/me/:userCode" component={ConfigUser} isAuth={isAuth} isLogged={isLogged}/>
 
-      <Route exact path="/Compras">
-        <Cart/>
-      </Route>
+      <ProtectedRoute path="/Compras" component={Cart} isAuth={isAuth} isLogged={isLogged}/>
       
       <Route exact path="/restaurantes/:restaurante">
         <Restaurante id=""></Restaurante>
