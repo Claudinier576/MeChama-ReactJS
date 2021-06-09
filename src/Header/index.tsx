@@ -21,7 +21,7 @@ const Header: React.FC<PropsHeader> = ({user}) => {
         </div>
         <SearchBar/> 
         <div>
-          <UserInfos href={'/User/me/'+user.userName.toUpperCase()}>
+          <UserInfos href={'/User/me/'+user.userName.toLowerCase()}>
             <img className="UserImg" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="" />
             <h1>{user.userName}</h1>
             <h2>R${user.accontCredits}</h2>

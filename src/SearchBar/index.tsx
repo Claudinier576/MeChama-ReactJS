@@ -12,7 +12,7 @@ const SearchBar = () => {
   }
   return (
     <Container>
-      <Input placeholder="Pesquise por produto..." onChange={changeSearch}/>
+      <Input type="text" placeholder="Pesquise por produto..." onChange={changeSearch}/>
     </Container>
   );
 }
