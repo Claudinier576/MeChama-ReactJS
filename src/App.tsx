@@ -1,17 +1,18 @@
-import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Layout from './Layout';
-import Login from './Login';
+import React, { useState } from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import Layout from './Layout'
+import Login from './Login'
 import Register from './Register/index'
 import RegisterComp from './RegisterComp'
-import GlobalStyled from './GlobalStyled';
+import GlobalStyled from './GlobalStyled'
 
 const App: React.FC = () => {
+
   return (
     <>
       <BrowserRouter>
         <Switch>
-          
+
           <Route path="/login">
             <Login />
           </Route>

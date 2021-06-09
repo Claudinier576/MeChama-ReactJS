@@ -37,6 +37,7 @@ export const UserInfos = styled.a`
   min-width: 180px;
   text-align: center;
   align-items: center;
+  text-decoration: none;
   
   .UserImg {
     border-radius: 50%;

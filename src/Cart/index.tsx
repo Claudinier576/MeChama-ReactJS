@@ -1,7 +1,8 @@
 import React from 'react'
 import { Container, ContainerLink, Item } from './styles'
+import { withRouter } from 'react-router-dom'
 
-export  const CartIcon: React.FC = () => {
+export const CartIcon: React.FC = () => {
   return (
     <ContainerLink href="/compras">
      <img className="CartIcon" src="/CartIcon.png" alt="CartIconImg" />
@@ -10,7 +11,7 @@ export  const CartIcon: React.FC = () => {
 }
 
 const totalItens = undefined;
-export const Cart: React.FC = () => {
+const Cart: React.FC = () => {
   return (
     <Container>
       {totalItens ? <Item></Item>
@@ -18,3 +19,5 @@ export const Cart: React.FC = () => {
     </Container>
   )
 }
+
+export default withRouter(Cart)

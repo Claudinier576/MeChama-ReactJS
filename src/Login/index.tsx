@@ -8,7 +8,6 @@ const Login: React.FC = () => {
 
   let history = useHistory()
 
-  // Background Image with useState
   const [backgroundImage, setBackgroundImage] = useState(LoadRandomPicture())
   const [errorLogin, setErrorLogin] = useState(false)
 
@@ -16,11 +15,6 @@ const Login: React.FC = () => {
     email: "",
     password: ""
   })
-
-  // Background Image with useEffect
-  // useEffect(() => {
-  //   setBackgroundImage(LoadRandomPicture())
-  // }, [])
 
   async function submit(e:any){
     e.preventDefault()
