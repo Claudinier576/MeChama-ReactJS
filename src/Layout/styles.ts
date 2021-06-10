@@ -13,9 +13,7 @@ export const Grid = styled.div`
         'CT CT CT'
         'FT FT FT';
     height: 100%;
-
     @media (max-width: 768px){
         grid-template-columns: 20px auto 180px;
-
     }
-`;
+`
