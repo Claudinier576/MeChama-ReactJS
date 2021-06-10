@@ -10,8 +10,8 @@ import ProtectedRoute from '../services/protectedRoute'
 
 const Content = () => {
 
-  const [isAuth, setIsAuth] = useState(false)
-  const [isLogged, setIsLogged]= useState(false)
+  const [isAuth, setIsAuth] = useState(true)
+  const [isLogged, setIsLogged]= useState(true)
 
   return (
     <Container>

@@ -39,47 +39,63 @@ interface ItemHistoryProps {
 
 const ConfigUser: React.FC = () => {
 
+  const [update, setUpdate] = useState(null);
+
   const [data, setData] = useState({
     email: "",
     npassword: "",
     cpassword: "",
     password: ""
   })
-  
-  
-  function handle(e:any){
-    const newData:any = {...data}
+
+
+  function handle(e: any) {
+    const newData: any = { ...data }
     newData[e.target.id] = e.target.value
     setData(newData)
   }
 
-  async function submitPass(){
+  async function submitPass() {
 
 
     console.log('enviando 2');
-    
-    
+    //  var headers = {'header1': DataLocalStorage}
+    //   var teste = await api.post("/userConfig/passEdit", {
+    //     headers: {
+    //       tokenUserJWT: DataLocalStorage
+    //     },
+    //     npassword : data.npassword,
+    //     cpassword: data.cpassword,
+    //     password: data.password
+    //   })
 
-   await api.post("/userConfig/passEdit", {
-      headers: {
-        tokenUserJWT: DataLocalStorage
-      },
-      npassword : data.npassword,
+    await axios.post('http://tn-15mechama-com.umbler.net/userConfig/passEdit', {
+      npassword: data.npassword,
       cpassword: data.cpassword,
       password: data.password
-    }).then(res=>{
-  
-      console.log('aaaaaaaaaaaaaaaaaaaa',res.data);
-      
-    }).catch(err =>{
-      console.log('BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB',err);
-      
-    })
-    console.log('CCCCCCCCCCCCCCC');
+    },
+      {
+        headers: {
+          tokenUserJWT: DataLocalStorage
+        }
+      }).then(res => {
+
+        console.log('aaaaaaaaaaaaaaaaaaaa', res.data);
+
+        setUpdate(res.data?.update.value);
+
+      }).catch(err => {
+        console.log('a', err);
+
+      })
+
+
+    console.log('teste', update);
   }
 
 
-  
+
+
 
   const customStyles = {
     content: {
@@ -175,55 +191,52 @@ const ConfigUser: React.FC = () => {
   }, [DataLocalStorage]);
 
   return (
-    <Container>
 
-      <Config>
-        <div className="Card">
-          <Photo src={"http://tn-15mechama-com.umbler.net/images/" + UserData.userinfo?.imgPerfile} alt="" />
-          <h1>{UserData.userinfo?.name}</h1>
-          <h1>{UserData.userinfo?.email}</h1>
-        </div>
 
-        <div className="Card">
+    <>
+
+      <Container>
+
+        <Config>
           <div className="Card">
-            <label htmlFor="Photo"> Alterar Foto </label>
-            <input type="file" name="Photo" id="Photo" accept="image/*" />
-          </div>
-          <div className="Card">
-            <label htmlFor="userName" onClick={handleOpenModalName}> Alterar nome </label>
-          </div>
-          <div className="Card">
-            <label htmlFor="Password" onClick={handleOpenModalPass}> Alterar Senha </label>
+            <Photo src={"http://tn-15mechama-com.umbler.net/images/" + UserData.userinfo?.imgPerfile} alt="" />
+            <h1>{UserData.userinfo?.name}</h1>
+            <h1>{UserData.userinfo?.email}</h1>
           </div>
 
-        </div>
+          <div className="Card">
+            <div className="Card">
+              <label htmlFor="Photo"> Alterar Foto </label>
+              <input type="file" name="Photo" id="Photo" accept="image/*" />
+            </div>
+            <div className="Card">
+              <label htmlFor="userName" onClick={handleOpenModalName}> Alterar nome </label>
+            </div>
+            <div className="Card">
+              <label htmlFor="Password" onClick={handleOpenModalPass}> Alterar Senha </label>
+            </div>
+
+          </div>
 
 
 
-      </Config>
-      <HistoriPurchases>{UserData.purchaseHistory?.map((item: ItemHistoryProps, i: any) => {
+        </Config>
+        <HistoriPurchases>{UserData.purchaseHistory?.map((item: ItemHistoryProps, i: any) => {
 
-        return (<ItemPurchase key={i}>
-          <h1 className="title">{item.companyName}</h1>
-          <h2 className="nameProduct">{item.productName} {item.productQuantity}x</h2>
-          <h3 className="value">R$ {item.productValue}</h3>
-          <p className="Date">{item.productDate}</p>
-
-
-
-
-        </ItemPurchase>)
-
-      })}</HistoriPurchases>
+          return (<ItemPurchase key={i}>
+            <h1 className="title">{item.companyName}</h1>
+            <h2 className="nameProduct">{item.productName} {item.productQuantity}x</h2>
+            <h3 className="value">R$ {item.productValue}</h3>
+            <p className="Date">{item.productDate}</p>
 
 
 
 
+          </ItemPurchase>)
 
+        })}</HistoriPurchases>
 
-
-
-
+      </Container>
 
       <ReactModal
         onRequestClose={handleCloseModalPass}
@@ -274,9 +287,7 @@ const ConfigUser: React.FC = () => {
 
 
       </ReactModal>
-
-    </Container>
-
+    </>
 
   );
 }
