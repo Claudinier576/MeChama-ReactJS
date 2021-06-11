@@ -2,7 +2,8 @@ import React from 'react'
 import ButtonCategories from '../ButtonCategories'
 import  { CartIcon } from '../Cart'
 import SearchBar from '../SearchBar'
-import { Container, UserInfos } from './styles'
+import { Container } from './styles'
+import UserProfileHeader from '../UserProfileHeader'
 
 interface PropsHeader {
   user:{
@@ -21,11 +22,7 @@ const Header: React.FC<PropsHeader> = ({user}) => {
         </div>
         <SearchBar/> 
         <div>
-          <UserInfos href={'/User/me/'+user.name}>
-            <img className="UserImg" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="userInfosImg" />
-            <h1>{user.name}</h1>
-            <h2>R${user.accontCredits}</h2>
-          </UserInfos>
+          <UserProfileHeader user={user}/>
         </div>
         <CartIcon/>
       </Container>

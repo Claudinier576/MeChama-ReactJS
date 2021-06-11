@@ -31,42 +31,42 @@ export const Container = styled.header`
     }
   }
 `
-export const UserInfos = styled.a`
-  cursor: pointer;
-  display: flex;
-  min-width: 180px;
-  text-align: center;
-  align-items: center;
-  text-decoration: none;
+// export const UserInfos = styled.a`
+//   cursor: pointer;
+//   display: flex;
+//   min-width: 180px;
+//   text-align: center;
+//   align-items: center;
+//   text-decoration: none;
   
-  .UserImg {
-    border-radius: 50%;
-    background-color: var(--BGColor);
-    padding:2px;
-    border:1px solid var(--green);
-    width: 40px;
-    object-fit: cover;
-  }
+//   .UserImg {
+//     border-radius: 50%;
+//     background-color: var(--BGColor);
+//     padding:2px;
+//     border:1px solid var(--green);
+//     width: 40px;
+//     object-fit: cover;
+//   }
 
-  h1 {
-    margin-right: 5%;
-    margin-left: 5%;
-    font-size: 14px;
-    color: var(--white);
-  }
+//   h1 {
+//     margin-right: 5%;
+//     margin-left: 5%;
+//     font-size: 14px;
+//     color: var(--white);
+//   }
     
-  h2 {
-    font-size:12px;
-    color: var(--gray);
-  }
+//   h2 {
+//     font-size:12px;
+//     color: var(--gray);
+//   }
 
-  @media (max-width: 500px) {
-    min-width: 0;
-    h1, h2 {
-      display: none;
-      width: 0;
-    }
-  }
-`
+//   @media (max-width: 500px) {
+//     min-width: 0;
+//     h1, h2 {
+//       display: none;
+//       width: 0;
+//     }
+//   }
+// `
 
 

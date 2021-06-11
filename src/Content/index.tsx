@@ -12,7 +12,8 @@ import axios from 'axios'
 
 const Content = () => {
 
-  const [isAuth, setIsAuth] = useState(true)
+  const [isUser, setIsUser] = useState(true)
+  const [isCompany, setIsCompany] = useState(true)
 
   useEffect(() => {
     async function callAPI() {
@@ -22,9 +23,11 @@ const Content = () => {
         }
       }).then(res => {
         if(res.data.userinfo.Type !== 'empresa'){
-          setIsAuth(true)
+          setIsUser(true)
+          setIsCompany(false)
         } else{
-          setIsAuth(false)
+          setIsUser(false)
+          setIsCompany(true)
         }
       })
     }
@@ -42,10 +45,10 @@ const Content = () => {
        <ProductSearch/>
       </Route>
 
-      <ProtectedRoute path="/User/me" component={ConfigUser} isAuth={isAuth} />
-      <ProtectedRoute path="/Emp/me" component={ConfigEmp} isAuth={isAuth} />
+      <ProtectedRoute path="/User/me" component={ConfigUser} isUser={isUser} isCompany={isCompany}/>
+      <ProtectedRoute path="/Emp/me" component={ConfigEmp} isUser={isUser} isCompany={isCompany}/>
 
-      <ProtectedRoute path="/Compras" component={Cart} isAuth={isAuth}/>
+      <ProtectedRoute path="/Compras" component={Cart} isUser={isUser} isCompany={isCompany}/>
       
       <Route exact path="/restaurantes/:restaurante">
         <Restaurante id=""></Restaurante>
