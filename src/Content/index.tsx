@@ -7,6 +7,7 @@ import Restaurantes from '../Restaurantes';
 import ProductSearch from '../ProductSearch';
 import Cart from '../Cart';
 import ProtectedRoute from '../services/protectedRoute'
+import ConfigEmp from '../ConfigEmp';
 import axios from 'axios'
 
 const Content = () => {
@@ -41,7 +42,8 @@ const Content = () => {
        <ProductSearch/>
       </Route>
 
-      <ProtectedRoute path="/User/me/:userCode" component={ConfigUser} isAuth={isAuth}/>
+      <ProtectedRoute path="/User/me" component={ConfigUser} isAuth={isAuth} />
+      <ProtectedRoute path="/Emp/me" component={ConfigEmp} isAuth={isAuth} />
 
       <ProtectedRoute path="/Compras" component={Cart} isAuth={isAuth}/>
       
