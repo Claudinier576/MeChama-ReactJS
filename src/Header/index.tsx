@@ -6,7 +6,7 @@ import { Container, UserInfos } from './styles'
 
 interface PropsHeader {
   user:{
-    userName: string;
+    name: string;
     accontCredits: string;
   }
 }
@@ -21,9 +21,9 @@ const Header: React.FC<PropsHeader> = ({user}) => {
         </div>
         <SearchBar/> 
         <div>
-          <UserInfos href={'/User/me/'+user.userName.toUpperCase()}>
+          <UserInfos href={'/User/me/'}>
             <img className="UserImg" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="userInfosImg" />
-            <h1>{user.userName}</h1>
+            <h1>{user.name}</h1>
             <h2>R${user.accontCredits}</h2>
           </UserInfos>
         </div>
