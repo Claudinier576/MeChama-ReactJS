@@ -4,6 +4,8 @@ import { Container, HistorySell, Config, ItemSell, Photo } from './styles';
 import ReactModal from 'react-modal';
 import api from '../services/api';
 import { withRouter } from 'react-router-dom'
+import RestauranteProduct from '../RestauranteProduct'
+import { ProductsView } from '../Restaurante/styles';
 
 
 interface EmpDataProps {
@@ -24,6 +26,14 @@ interface EmpDataProps {
       "productQuantity": Number
     },
   ],
+  "products"?: [{
+    id: number,
+    name: string,
+    description: string,
+    value: number,
+    img: string,
+    additionals: string
+  }]
   "mansageError"?: Boolean,
   "mansageConfirm"?: Boolean
 }
@@ -69,8 +79,6 @@ const ConfigEmp: React.FC = () => {
         }
       }).then(res => {
 
-        console.log('aaaaaaaaaaaaaaaaaaaa', res.data);
-
         setUpdate(res.data?.update.value);
 
       }).catch(err => {
@@ -80,10 +88,6 @@ const ConfigEmp: React.FC = () => {
 
 
   }
-
-
-
-
 
   const customStyles = {
     content: {
@@ -167,13 +171,16 @@ const ConfigEmp: React.FC = () => {
 
     async function callAPI() {
 
-      await axios.get('http://tn-15mechama-com.umbler.net/ ', {
+      await axios.get('http://tn-15mechama-com.umbler.net/company/', {
         headers: {
           tokenUserJWT: DataLocalStorage
         }
       }).then(response => setEmpData(response.data));
+
     }
     callAPI();
+    console.log(EmpData);
+    
 
 
   }, [DataLocalStorage]);
@@ -206,6 +213,13 @@ const ConfigEmp: React.FC = () => {
 
           </div>
 
+          <ProductsView>
+            {EmpData.products?.map(product => {
+              return <RestauranteProduct id={product.id} name={product.name} description={product.description} value={product.value} img={'http://tn-15mechama-com.umbler.net/images/'+ product.img}/>
+
+            })}
+
+          </ProductsView>
 
 
         </Config>
@@ -259,7 +273,6 @@ const ConfigEmp: React.FC = () => {
 
 
       </ReactModal>
-
 
       <ReactModal
         onRequestClose={handleCloseModalName}
