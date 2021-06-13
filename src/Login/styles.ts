@@ -81,9 +81,19 @@ const Container = styled.div`
                 left: 42%
             }
         }
-        @media (max-width:415px){
+        @media (max-width:460px){
+            .logoBackground{
+                left: 41%
+            }
+        }
+        @media (max-width:430px){
             .logoBackground{
                 left: 40%
+            }
+        }
+        @media (max-width:380px){
+            .logoBackground{
+                left: 38%
             }
         }
 
@@ -128,15 +138,14 @@ const Container = styled.div`
         }
         @media (max-width:600px){
             .box{
-                top: 27%;
+                top: 42%;
                 right: 0;
-                left: 52%;
+                left: 50%;
             }
         }
         @media (max-width:450px){
             .box{
                 width: 75%;
-                left: 52%;
             }
         }
         
