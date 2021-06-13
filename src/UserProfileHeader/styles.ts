@@ -1,9 +1,5 @@
 import styled from 'styled-components'
 
-// export const P = styled.p`
-//   color: white;
-// `
-
 export const UserInfos = styled.a`
   cursor: pointer;
   display: flex;
@@ -73,5 +69,22 @@ export const CompanyInfos = styled.a`
       display: none;
       width: 0;
     }
+  }
+`
+
+export const UnloggedInfo = styled.a`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  min-width: 100px;
+  justify-content: center;
+  
+  .UserImg {
+    border-radius: 50%;
+    background-color: var(--BGColor);
+    padding:2px;
+    border:1px solid var(--green);
+    width: 40px;
+    object-fit: cover;
   }
 `
