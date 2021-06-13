@@ -26,7 +26,7 @@ const ProductSearch: React.FC = () => {
   const Products: PropR = useParams();
   
   useEffect(() => {
-    fetch('http://tn-15mechama-com.umbler.net/Products').then(
+    fetch('https://tn-15mechama-com.umbler.net/Products').then(
       response => response.json()).then(data => setProductsData(data))
   }, [Products]);
 
@@ -42,7 +42,7 @@ const ProductSearch: React.FC = () => {
             id={product.id}
             description={product.description}
             value={product.value}
-            img={'http://tn-15mechama-com.umbler.net/images/'+ product.img} />
+            img={'https://tn-15mechama-com.umbler.net/images/'+ product.img} />
           );
         }) : ''}
       </ProductsView>

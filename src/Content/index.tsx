@@ -17,7 +17,7 @@ const Content = () => {
 
   useEffect(() => {
     async function callAPI() {
-      await axios.get('http://tn-15mechama-com.umbler.net/userConfig', {
+      await axios.get('https://tn-15mechama-com.umbler.net/userConfig', {
         headers: {
           tokenUserJWT: localStorage.getItem('tokenUserJWT')
         }

@@ -15,7 +15,7 @@ const UserProfileHeader: React.FC<PropsHeader> = ({user}) => {
   const [isCompany, setIsCompany] = useState(true)
 
   async function callAPI() {
-    await axios.get('http://tn-15mechama-com.umbler.net/userConfig', {
+    await axios.get('https://tn-15mechama-com.umbler.net/userConfig', {
       headers: {
       tokenUserJWT: localStorage.getItem('tokenUserJWT')
       }

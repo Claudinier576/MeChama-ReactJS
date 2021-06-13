@@ -68,7 +68,7 @@ const ConfigEmp: React.FC = () => {
   }
 
   async function submitPass() {
-    await axios.post('http://tn-15mechama-com.umbler.net/userConfig/passEdit', {
+    await axios.post('https://tn-15mechama-com.umbler.net/userConfig/passEdit', {
       npassword: data.npassword,
       cpassword: data.cpassword,
       password: data.password
@@ -171,7 +171,7 @@ const ConfigEmp: React.FC = () => {
 
     async function callAPI() {
 
-      await axios.get('http://tn-15mechama-com.umbler.net/company/', {
+      await axios.get('https://tn-15mechama-com.umbler.net/company/', {
         headers: {
           tokenUserJWT: DataLocalStorage
         }
@@ -194,7 +194,7 @@ const ConfigEmp: React.FC = () => {
 
         <Config>
           <div className="Card">
-            <Photo src={"http://tn-15mechama-com.umbler.net/images/" + EmpData.userinfo?.imgPerfile} alt="" />
+            <Photo src={"https://tn-15mechama-com.umbler.net/images/" + EmpData.userinfo?.imgPerfile} alt="" />
             <h1>{EmpData.userinfo?.name}</h1>
             <h1>{EmpData.userinfo?.email}</h1>
           </div>
