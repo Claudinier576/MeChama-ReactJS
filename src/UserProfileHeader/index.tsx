@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { UserInfos, CompanyInfos } from './styles'
+import { UserInfos, CompanyInfos, UnloggedInfo } from './styles'
 import axios from 'axios'
 
 interface PropsHeader {
@@ -11,26 +11,27 @@ interface PropsHeader {
 
 const UserProfileHeader: React.FC<PropsHeader> = ({user}) => {
 
-  const [isAuth, setIsAuth] = useState(true)
+  const [isUser, setIsUser] = useState(true)
+  const [isCompany, setIsCompany] = useState(true)
 
-  useEffect(() => {
-    async function callAPI() {
+  async function callAPI() {
     await axios.get('http://tn-15mechama-com.umbler.net/userConfig', {
       headers: {
       tokenUserJWT: localStorage.getItem('tokenUserJWT')
       }
     }).then(res => {
       if(res.data.userinfo.Type !== 'empresa'){
-      setIsAuth(true)
+        setIsUser(true)
+        setIsCompany(false)
       } else{
-      setIsAuth(false)
+        setIsCompany(true)
+        setIsUser(false)
       }
     })
-    }
-    callAPI()
-  }, [])
+  }
+  useEffect(() => {callAPI()}, [])
 
-  if(isAuth === true){
+  if(isUser === true && (localStorage.getItem('tokenUserJWT') || "").length !== 0){
     return (
       <UserInfos href={'/User/me/'+user.name}>
         <img className="UserImg" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="userInfosImg" />
@@ -38,14 +39,21 @@ const UserProfileHeader: React.FC<PropsHeader> = ({user}) => {
         <h2>R${user.accontCredits}</h2>
       </UserInfos>
     )
-  } else{
+  } else if(isCompany === true && (localStorage.getItem('tokenUserJWT') || "").length !== 0){
       return (
         <CompanyInfos href={'/Emp/me/'+user.name}>
           <img className="UserImg" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="userInfosImg" />
           <h1>{user.name}</h1>
         </CompanyInfos>
       )
+  } else {
+    return (
+      <UnloggedInfo href={'/Emp/me/'+user.name}>
+        <img className="UserImg" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="userInfosImg" />
+      </UnloggedInfo>
+    )
   }
 }
+
 
 export default UserProfileHeader
