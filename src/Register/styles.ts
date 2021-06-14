@@ -3,7 +3,6 @@ import styled from 'styled-components'
 const RegisterStyle = styled.div`
   * {
     font-family: Arial, Helvetica, sans-serif;
-    color: black;
     text-decoration: none;
   }
 

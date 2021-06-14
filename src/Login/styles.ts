@@ -4,7 +4,6 @@ const GlobalStyle = createGlobalStyle`
     body {
         margin: 0;
         font-family: 'Roboto',sans-serif;
-        color: black;
         text-decoration: none;
     }
 `
@@ -24,6 +23,12 @@ const Body = styled.div<BodyProps>`
     background-size: cover !important;
     background-repeat: no-repeat;
     background: ${(props) => props.backgroundImage ? "url(" + props.backgroundImage + ") no-repeat" : null};
+`
+
+const RequiredField = styled.p`
+    margin: 0;
+    line-height: 0;
+    color: #d21f3c;
 `
 
 const InvalidAlert = styled.div<InvalidAlertProps>`
@@ -68,7 +73,7 @@ const Container = styled.div`
     }
 
     .logoBackground {
-        top: 5%;
+        top: 20px;
         position: absolute;
         padding: 15px;
         background-color: #1a1d2d;
@@ -98,7 +103,7 @@ const Container = styled.div`
         }
 
     .box {
-        top: 5%;
+        top: 20px;
         padding: 20px;
         width: 30%;
         background-color: white;
@@ -138,7 +143,7 @@ const Container = styled.div`
         }
         @media (max-width:600px){
             .box{
-                top: 42%;
+                top: 120px;
                 right: 0;
                 left: 50%;
             }
@@ -284,4 +289,4 @@ const Container = styled.div`
     }
 `
 
-export { Body, Container, TransparentLayer, GlobalStyle, InvalidAlert }
+export { Body, Container, TransparentLayer, GlobalStyle, InvalidAlert, RequiredField }

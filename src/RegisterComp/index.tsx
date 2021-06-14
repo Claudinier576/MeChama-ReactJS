@@ -1,41 +1,34 @@
 import React, { useState } from 'react'
-import { Container, Body, TransparentLayer, GlobalStyle } from '../Login/styles'
+import { Container, Body, TransparentLayer, GlobalStyle, RequiredField } from '../Login/styles'
 import LoadRandomPicture from '../Login/backgroundImage';
 import { RegisterStyle } from '../Register/styles'
 import api from '../services/api'
 import { useHistory } from 'react-router'
+import { compSchema } from '../services/yupSchemas'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
 
 const RegisterComp: React.FC = () => {
 
   let history = useHistory()
+  const [backgroundImage, setBackgroundImage] = useState(LoadRandomPicture())
 
-  const [data, setData] = useState({
-    fullname: "",
-    cnpj: "",
-    email: "",
-    password: "",
-    cpassword: "",
-    phone: ""
+  const { register, handleSubmit, formState: {errors} } = useForm({
+    resolver: yupResolver(compSchema),
   })
 
-  async function submit(e:any){
-    e.preventDefault()
-    await api.post("/register", {
+  const submit = async (data:any) => {
+    await api.post("/registeremp", {
       fullname: data.fullname,
       cnpj: data.cnpj,
       email: data.email,
       password: data.password,
       cpassword: data.cpassword,
-      phone: data.phone
+      phone: data.phone,
     }).then(res=>{
+      alert("Cadastro realizado com sucesso!")
       history.push("/login")
     })
-  }
-
-  function handle(e:any){
-    const newData:any = {...data}
-    newData[e.target.id] = e.target.value
-    setData(newData)
   }
 
   return (
@@ -43,36 +36,41 @@ const RegisterComp: React.FC = () => {
       <GlobalStyle />
       <Container>
         <RegisterStyle>
-          <Body backgroundImage={ LoadRandomPicture() }>
+        <Body backgroundImage={backgroundImage}>
             <TransparentLayer />
             <a href="/" className="logoBackground"><img src="/images/startup (1).png" alt="logo" className="logoImg" /></a>
             <div className="card-body">
-              <form onSubmit={submit} method="POST" className="box">
+              <form onSubmit={handleSubmit(submit)} method="POST" className="box">
                 <h1>Empresa!</h1>
                 <div className="form-align">
                   <div className="line line-align">
                     <label className="label-align" htmlFor="fullname">Nome: </label>
-                    <input onChange={handle} value={data.fullname} className="input-align" type="text" placeholder="Nome da Empresa" id="fullname" name="fullname" required />
+                    <input className="input-align" type="text" placeholder="Nome da Empresa" id="fullname" {...register('fullname')} />
                   </div>
+                  <RequiredField>{errors.fullname?.message}</RequiredField>
                   <div className="line line-align">
                     <label className="label-align" htmlFor="cnpj">CNPJ: </label>
-                    <input onChange={handle} value={data.cnpj} className="input-align" type="text" placeholder="00.000.000/0000-00" id="cnpj" name="cnpj" required />
+                    <input className="input-align" type="text" placeholder="00.000.000/0000-00" id="cnpj" {...register('cnpj')} />
                   </div>
+                  <RequiredField>{errors.cnpj?.message}</RequiredField>
                   <div className="line line-align">
                     <label className="label-align" htmlFor="email">Email: </label>
-                    <input onChange={handle} value={data.email} className="input-align" type="email" id="email" placeholder="Email" name="email" required />
+                    <input className="input-align" type="email" id="email" placeholder="Email" {...register('email')} />
                   </div>
+                  <RequiredField>{errors.email?.message}</RequiredField>
                   <div className="line line-align">
                     <label className="label-align" htmlFor="password">Senha: </label>
-                    <input onChange={handle} value={data.password} className="input-align" type="password" id="password" placeholder="Senha" name="password" required />
+                    <input className="input-align" type="password" id="password" placeholder="Senha" {...register('password')} />
                   </div>
+                  <RequiredField>{errors.password?.message}</RequiredField>
                   <div className="line line-align">
                     <label className="label-align" htmlFor="cpassword">Confirmar: </label>
-                    <input onChange={handle} value={data.cpassword} className="input-align" id="cpassword" type="password" placeholder="Confirmar Senha" name="cpassword" required />
+                    <input className="input-align" id="cpassword" type="password" placeholder="Confirmar Senha" {...register('cpassword')} />
                   </div>
+                  <RequiredField>{errors.cpassword && "Senhas devem ser idênticas."}</RequiredField>
                   <div className="line line-align">
                     <label className="label-align" htmlFor="phone">Número: </label>
-                    <input onChange={handle} value={data.phone} className="input-align" id="phone" type="text" placeholder="(**)9****-****" name="phone" required />
+                    <input className="input-align" id="phone" type="text" placeholder="(**)9****-****" {...register('phone')} />
                   </div>  
                 </div>
                 <div className="line">
