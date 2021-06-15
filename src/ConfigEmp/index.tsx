@@ -1,21 +1,27 @@
 import axios from 'axios';
+
 import React, { useEffect, useState } from 'react';
-import { Container, HistorySell, Config, ItemSell, Photo } from './styles';
+import { Container, AddProduct, Config, Photo } from './styles';
 import ReactModal from 'react-modal';
-import api from '../services/api';
 import { withRouter } from 'react-router-dom'
 import RestauranteProduct from '../RestauranteProduct'
 import { ProductsView } from '../Restaurante/styles';
+import NewProduct from '../NewProduct';
+
 
 
 interface EmpDataProps {
-  "userinfo"?: {
+  "user"?: {
     "imgPerfile": String,
     "name": String,
     "CPF": String,
     "number": String,
     "userName": String,
     "email": String
+  },"empresa"?:{
+    "banner": String,
+    "logo": String,
+    "name": String,
   },
   "HistorySell"?: [
     {
@@ -37,17 +43,11 @@ interface EmpDataProps {
   "mansageError"?: Boolean,
   "mansageConfirm"?: Boolean
 }
-interface ItemHistoryProps {
-  "companyName": String,
-  "productName": String,
-  "productValue": String,
-  "productDate": String,
-  "productQuantity": Number
-}
 
 
 
 const ConfigEmp: React.FC = () => {
+
 
   const [update, setUpdate] = useState(null);
 
@@ -55,9 +55,9 @@ const ConfigEmp: React.FC = () => {
     npassword: "",
     cpassword: "",
     password: "",
-    ProductName : "",
-    ProductValue : "",
-    ProductImg : "",
+    ProductName: "",
+    ProductValue: "",
+    ProductImg: "",
   })
 
 
@@ -169,18 +169,17 @@ const ConfigEmp: React.FC = () => {
 
   useEffect(() => {
 
+
     async function callAPI() {
 
-      await axios.get('https://tn-15mechama-com.umbler.net/company/', {
+      await axios.get('https://tn-15mechama-com.umbler.net/company', {
         headers: {
           tokenUserJWT: DataLocalStorage
         }
       }).then(response => setEmpData(response.data));
-
     }
     callAPI();
-    console.log(EmpData);
-    
+    console.log('aaaaaaaaa',EmpData);
 
 
   }, [DataLocalStorage]);
@@ -194,9 +193,9 @@ const ConfigEmp: React.FC = () => {
 
         <Config>
           <div className="Card">
-            <Photo src={"https://tn-15mechama-com.umbler.net/images/" + EmpData.userinfo?.imgPerfile} alt="" />
-            <h1>{EmpData.userinfo?.name}</h1>
-            <h1>{EmpData.userinfo?.email}</h1>
+            <Photo src={"https://tn-15mechama-com.umbler.net/images/" + EmpData.empresa?.logo} alt="" />
+            <h1>{EmpData.user?.name}</h1>
+            <h1>{EmpData.user?.email}</h1>
           </div>
 
           <div className="Card">
@@ -215,7 +214,7 @@ const ConfigEmp: React.FC = () => {
 
           <ProductsView>
             {EmpData.products?.map(product => {
-              return <RestauranteProduct id={product.id} name={product.name} description={product.description} value={product.value} img={'https://tn-15mechama-com.umbler.net/images/'+ product.img}/>
+              return <RestauranteProduct id={product.id} name={product.name} description={product.description} value={product.value} img={'https://tn-15mechama-com.umbler.net/images/' + product.img} />
 
             })}
 
@@ -223,20 +222,9 @@ const ConfigEmp: React.FC = () => {
 
 
         </Config>
-        <HistorySell>{EmpData.HistorySell?.map((item: ItemHistoryProps, i: any) => {
-
-          return (<ItemSell key={i}>
-            <h1 className="title">{item.companyName}</h1>
-            <h2 className="nameProduct">{item.productName} {item.productQuantity}x</h2>
-            <h3 className="value">R$ {item.productValue}</h3>
-            <p className="Date">{item.productDate}</p>
-
-
-
-
-          </ItemSell>)
-
-        })}</HistorySell>
+        <AddProduct>
+         <NewProduct></NewProduct>
+        </AddProduct>
 
       </Container>
 
