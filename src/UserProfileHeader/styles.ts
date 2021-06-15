@@ -29,7 +29,7 @@ export const UserInfos = styled.a`
     color: var(--gray);
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 650px) {
     min-width: 0;
     h1, h2 {
       display: none;

@@ -14,9 +14,11 @@ const RestauranteProduct: React.FC<Props> = ({id,name,description,value,img}) =>
   return (
     <Container  key={id}>
         <img src={img} alt="" />
-        <h1>{name}</h1>
-        <h3>{description}</h3>
-        <span>R$: {value},00</span>
+        <div>
+          <h1>{name}</h1>
+          <h2>{description}</h2>
+          <span>R$: {value},00</span>
+        </div>
     </Container>
   );
 }

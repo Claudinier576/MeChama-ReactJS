@@ -21,7 +21,7 @@ export const Menu = styled.a`
 
     h1{
         font-size: 25px;
-        word-break: break-all;
+        line-break: auto;
     }
 
     h2{
@@ -29,6 +29,7 @@ export const Menu = styled.a`
         line-break: auto;
         padding: 0 3%;
         width: 100%;
+        color: #a9a9a9;
     }
 
     img{
