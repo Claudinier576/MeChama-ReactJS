@@ -1,50 +1,48 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-
+    min-height: 190px;
+    margin: 15px;
+    text-decoration:none;
+    cursor: pointer;
     display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    overflow: hidden;
-    width: 375px;
-    height: 180px;
+    width: 300px;
+    color: #fff;
     background-color: var(--BGColor);
-    padding: 0px 10px 0 0;
-    border-radius: 15px;
-    border: 3px solid #000;
-    margin: 10px;
+    border-radius: 16px;
     text-align: center;
-    color: var(--white);
-    h1,h2{
-        display:block;
-        width: 180px;
-        height: 45px;
-        font-size: 18px;
-        position: relative;
-        top: -65px;
-        left: 10px;
-        overflow: hidden;
+    margin-bottom: auto;
+    h1{
+        font-size: 20px;
+        line-break: auto;
     }
-   h3,h4,h5,h6{
-         font-size: 15px;
-        position: relative;
-        top: -105px;
-        left: 125px;
-        text-overflow:clip;
-        overflow: inherit;
-        width: 180px;
-        height: 70px;
+    h2{
+        font-size:14px;
+        line-break: auto;
+        padding: 0 3%;
+        width: 100%;
+        color: #a9a9a9;
     }
     img{
+        margin-left: 5px;
         width:120px;
         height: 180px;
         border-radius: 15px 0 0px 15px;
         object-fit: cover;
+        align-self: center;
     }
     span{
-        position: relative;
-        top:-60px;
-        left:90px;
+        align-self: flex-end;
         color: var(--green);
     }
-`;
+    div{
+        width: 100%;
+        padding: 10px;
+        justify-content: space-between;
+        padding-right: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+`
