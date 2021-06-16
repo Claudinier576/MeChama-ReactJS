@@ -4,36 +4,44 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    transform: skewY(16deg);
 `
 
 export const Menu = styled.a`
-    min-height: 190px;
+    background-color: transparent;
+    transition: background-color .4s,border .2s;
+    min-height: 160px;
     margin: 15px;
     text-decoration:none;
     cursor: pointer;
     display: flex;
     flex-wrap: wrap;
     width: 300px;
-    color: #fff;
-    background-color: var(--BGColor);
+    color: var(--text);
     border-radius: 16px;
     text-align: center;
+    box-shadow: 0px 0px 10px 0px #00000042;
+
+    &:hover,&.active{
+    background-color: #d21f3c3d;
+    border: 2px solid #3a4660;
+    }
 
     h1{
-        font-size: 25px;
+        font-size: 22px;
         line-break: auto;
     }
 
     h2{
-        font-size:18px;
+        font-size:14px;
         line-break: auto;
         padding: 0 3%;
         width: 100%;
-        color: #a9a9a9;
+        color: #828ca2;
     }
 
     img{
-        width: 40%;
+        width: 35%;
         object-fit: cover;
         border-radius: 50%;
         margin: 10px;
