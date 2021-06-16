@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import RestauranteProduct from '../RestauranteProduct';
-import { Container, ProductsView } from './styles';
+import { ProductsView } from './styles';
 
 interface PropR {
   Search: string;
@@ -31,7 +31,7 @@ const ProductSearch: React.FC = () => {
   }, [Products]);
 
   return (
-    <Container>
+    <>
       <ProductsView>
         {ProductsData?.products ?ProductsData.products.filter((product) =>{
           return  product.name.toUpperCase().includes(Products.Search.toString().toUpperCase());
@@ -46,7 +46,7 @@ const ProductSearch: React.FC = () => {
           );
         }) : ''}
       </ProductsView>
-    </Container>
+    </>
   );
 }
 

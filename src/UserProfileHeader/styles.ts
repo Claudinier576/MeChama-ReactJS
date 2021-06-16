@@ -10,9 +10,9 @@ export const UserInfos = styled.a`
   
   .UserImg {
     border-radius: 50%;
-    background-color: var(--BGColor);
+    background-color: var(--white);
     padding:2px;
-    border:1px solid var(--green);
+    border:2px solid var(--green);
     width: 40px;
     object-fit: cover;
   }
@@ -21,12 +21,12 @@ export const UserInfos = styled.a`
     margin-right: 5%;
     margin-left: 5%;
     font-size: 14px;
-    color: var(--white);
+    color: var(--text);
   }
     
   h2 {
     font-size:12px;
-    color: var(--gray);
+    color: var(--subText);
   }
 
   @media (max-width: 650px) {
@@ -49,9 +49,9 @@ export const CompanyInfos = styled.a`
   
   .UserImg {
     border-radius: 50%;
-    background-color: var(--BGColor);
+    background-color: var(--white);
     padding:2px;
-    border:1px solid var(--green);
+    border:2px solid var(--green);
     width: 40px;
     object-fit: cover;
   }
@@ -60,7 +60,7 @@ export const CompanyInfos = styled.a`
     margin-right: 5%;
     margin-left: 5%;
     font-size: 14px;
-    color: var(--white);
+    color: var(--text);
   }
     
   @media (max-width: 500px) {
@@ -81,9 +81,9 @@ export const UnloggedInfo = styled.a`
   
   .UserImg {
     border-radius: 50%;
-    background-color: var(--BGColor);
+    background-color: var(--white);
     padding:2px;
-    border:1px solid var(--green);
+    border:2px solid var(--green);
     width: 40px;
     object-fit: cover;
   }

@@ -11,12 +11,12 @@ export const Container = styled.div`
 export const Input = styled.input`
     width:100%;
     padding: 0 10px;
-    color: var(--white);
+    color: var(--text);
     background-color: transparent;
     text-transform: uppercase;
 
     &::placeholder{
-        color: var(--gray);
+        color: var(--pinkText);
     }
 
     @media (max-width: 560px) {
