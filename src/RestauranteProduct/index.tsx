@@ -74,8 +74,12 @@ async function deleteItem(idProduct: number){
       height: '85%',
     },
     button: {
-      display: 'flex',
-      alignSelf: 'flex-start', 
+      background: 'none',
+      marginRight: '15px',
+      justifySelf: 'center',
+      color: 'var(--text)',
+      marginTop: '15px',
+      fontSize: '15px',
     },
     div: {
       color: 'var(--text)',
@@ -133,9 +137,10 @@ async function deleteItem(idProduct: number){
             <h1 style={customStyles.h1}>{name}</h1>
             <h2 style={customStyles.h2}>{description}</h2>
             <span style={customStyles.span}>R$: {value.toLocaleString()}</span>
-            <button onClick={()=>{deleteItem(id)}}>Deletar</button>
-            <br />
-            <button>Salvar Alterações</button>
+            <div>
+              <button style={customStyles.button} onClick={()=>{deleteItem(id)}}>Deletar</button>
+              <button style={customStyles.button}>Salvar Alterações</button>
+            </div>
           </div>
       </ReactModal> : <ReactModal onRequestClose={handleCloseModal} isOpen={isOpenModal} style={customStyles}>
           <button onClick={handleCloseModal} style={customStyles.button}>X</button>
