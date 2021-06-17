@@ -59,12 +59,45 @@ const ConfigEmp: React.FC = () => {
     ProductValue: "",
     ProductImg: "",
   })
+  const [dataUpdate, setDataUpdate] = useState({
+    userName: "",
+  })
 
 
+  function handleUpdate(e: any) {
+    const newData: any = { ...dataUpdate }
+    newData[e.target.id] = e.target.value
+    setDataUpdate(newData)
+    console.log(dataUpdate);
+    
+  }
   function handle(e: any) {
     const newData: any = { ...data }
     newData[e.target.id] = e.target.value
     setData(newData)
+  }
+
+  async function saveNewName(){
+    await axios.post('http://tn-15mechama-com.umbler.net/userConfig/infosedit', {
+      userName : dataUpdate.userName
+    },
+      {
+        headers: {
+          tokenUserJWT: DataLocalStorage
+        }
+      }).then(res => {
+
+        setUpdate(res.data?.update.value);
+        
+        window.location.reload();
+
+      }).catch(err => {
+        console.log(err);
+        alert("Não foi possivel alterar");
+
+      })
+
+
   }
 
   async function submitPass() {
@@ -79,11 +112,10 @@ const ConfigEmp: React.FC = () => {
         }
       }).then(res => {
 
-        setUpdate(res.data?.update.value);
-
+        alert("Alterado com sucesso");
       }).catch(err => {
         console.log(err);
-
+        alert("Não foi possivel alterar");
       })
 
 
@@ -265,8 +297,8 @@ const ConfigEmp: React.FC = () => {
         <button onClick={handleCloseModalName} style={customStyles.close}>X</button>
         <div style={customStyles.div}>
           <label htmlFor="UserName" style={customStyles.close}><i className="far fa-user" />Digite o nome da empreasa</label>
-          <input type="text" style={customStyles.input} name="UserName" id="UserName" />
-          <button type="submit" style={customStyles.button}>Salvar</button>
+          <input type="text" style={customStyles.input} id="userName" onChange={handleUpdate} name="userName" />
+          <button type="submit" onClick={saveNewName}  style={customStyles.button}>Salvar</button>
         </div>
 
 
