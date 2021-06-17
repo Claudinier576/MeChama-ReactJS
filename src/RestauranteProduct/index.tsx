@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ProductCard } from './styles';
 import ReactModal from 'react-modal';
+import { useParams } from 'react-router-dom';
 
 interface Props{
   id: number,
@@ -11,7 +12,24 @@ interface Props{
   additionals?: string
 }
 
+interface PropR {
+  data: string;
+}
+
 const RestauranteProduct: React.FC<Props> = ({id,name,description,value,img}) => {
+
+  const [IsEmp, setIsEmp] = useState(false);
+
+  const link: PropR = useParams();
+  useEffect(() => {
+    if(link.data){
+      if(link.data.length > 0){
+        setIsEmp(true);
+      }
+    }
+
+  },[])
+  
 
   const [isOpenModal, setIsOpenModal] = useState(false);
 
@@ -83,19 +101,34 @@ const RestauranteProduct: React.FC<Props> = ({id,name,description,value,img}) =>
         <div>
           <h1>{name}</h1>
           <h2>{description}</h2>
-          <span>R$: {value},00</span>
+          <span>R$: {value.toLocaleString()}</span>
         </div>
       </ProductCard>
-      
-      <ReactModal onRequestClose={handleCloseModal} isOpen={isOpenModal} style={customStyles}>
+
+      {IsEmp == true ?  <ReactModal onRequestClose={handleCloseModal} isOpen={isOpenModal} style={customStyles}>
           <button onClick={handleCloseModal} style={customStyles.button}>X</button>
           <div style={customStyles.div}>
-            <img style={customStyles.img} src={img} alt="" />
+            <img style={customStyles.img}  src={img} alt="" />
             <h1 style={customStyles.h1}>{name}</h1>
             <h2 style={customStyles.h2}>{description}</h2>
-            <span style={customStyles.span}>R$: {value},00</span>
+            <span style={customStyles.span}>R$: {value.toLocaleString()}</span>
+            <button>Deletar</button>
+            <br />
+            <button>Salvar Alterações</button>
+          </div>
+      </ReactModal> : <ReactModal onRequestClose={handleCloseModal} isOpen={isOpenModal} style={customStyles}>
+          <button onClick={handleCloseModal} style={customStyles.button}>X</button>
+          <div style={customStyles.div}>
+            <img style={customStyles.img}  src={img} alt="" />
+            <h1 style={customStyles.h1}>{name}</h1>
+            <h2 style={customStyles.h2}>{description}</h2>
+            <span style={customStyles.span}>R$: {value.toLocaleString()}</span>
           </div>
       </ReactModal>
+      
+    }
+      
+
     </>
   );
 }

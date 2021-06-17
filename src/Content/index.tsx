@@ -50,7 +50,7 @@ const Content = () => {
       </Route>
 
       <ProtectedRoute path="/User/me" component={ConfigUser} isUser={isUser} isCompany={isCompany}/>
-      <ProtectedRoute path="/Emp/me" component={ConfigEmp} isUser={isUser} isCompany={isCompany}/>
+      <ProtectedRoute path="/Emp/me/:data" component={ConfigEmp} isUser={isUser} isCompany={isCompany}/>
 
       <ProtectedRoute path="/Compras" component={Cart} isUser={isUser} isCompany={isCompany}/>
       
