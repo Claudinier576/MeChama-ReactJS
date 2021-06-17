@@ -15,7 +15,7 @@ const Cart: React.FC = () => {
   return (
     <Container>
       {totalItens ? <Item></Item>
-      : <h1>Opps sem compras no momento vá para a pagina inicial :)</h1>}
+      : <h1>Ops, sem compras no momento. &#128517;</h1>}
     </Container>
   )
 }

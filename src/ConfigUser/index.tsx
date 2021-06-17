@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Container, HistoriPurchases, Config, ItemPurchase, Photo } from './styles';
 import ReactModal from 'react-modal';
-import api from '../services/api';
 import { withRouter } from 'react-router-dom'
 
 
@@ -69,7 +68,7 @@ const ConfigUser: React.FC = () => {
     //     password: data.password
     //   })
 
-    await axios.post('https://tn-15mechama-com.umbler.net/userConfig/passEdit', {
+    await axios.post('http://tn-15mechama-com.umbler.net/userConfig/passEdit', {
       npassword: data.npassword,
       cpassword: data.cpassword,
       password: data.password
@@ -99,52 +98,52 @@ const ConfigUser: React.FC = () => {
 
   const customStyles = {
     content: {
-      top: '50%',
+      top: '56%',
       left: '50%',
       right: 'auto',
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      background: '#1a1d2d',
+      background: 'var(--white)',
       width: '95%',
       height: '85%',
 
     }, button: {
       width: '50%',
       background: 'none',
-      color: '#fff',
+      color: 'var(--text)',
       margin: '15px 0px 15px 0',
-      fontSize: '35px',
+      fontSize: '20px',
       cursor: 'pointer',
-      border: '2px solid #fff',
+      border: '2px solid var(--text)',
       borderRadius: '25px'
     },
     div: {
-      color: '#fff',
+      color: 'var(--text)',
       margin: '15px 25px',
       textAlign: 'center' as const,
 
     }, close: {
       background: 'none',
-      color: '#fff',
-      fontSize: '24px'
+      color: 'var(--text)',
+      fontSize: '15px'
     },
     label: {
 
-      color: '#fff',
+      color: 'var(--text)',
       margin: '15px 0px 15px 0',
-      fontSize: '35px',
+      fontSize: '20px',
       cursor: 'pointer',
 
 
     },
     input: {
       background: 'none',
-      color: '#fff',
+      color: 'var(--text)',
       width: '100%',
       height: '25px',
       fontSize: '24px',
-      borderBottom: '2px solid #fff',
+      borderBottom: '2px solid var(--text)',
     }
 
   };
@@ -179,7 +178,7 @@ const ConfigUser: React.FC = () => {
 
     async function callAPI() {
 
-      await axios.get('https://tn-15mechama-com.umbler.net/userConfig', {
+      await axios.get('http://tn-15mechama-com.umbler.net/userConfig', {
         headers: {
           tokenUserJWT: DataLocalStorage
         }
@@ -199,7 +198,7 @@ const ConfigUser: React.FC = () => {
 
         <Config>
           <div className="Card">
-            <Photo src={"https://tn-15mechama-com.umbler.net/images/" + UserData.userinfo?.imgPerfile} alt="" />
+            <Photo src={"http://tn-15mechama-com.umbler.net/images/" + UserData.userinfo?.imgPerfile} alt="" />
             <h1>{UserData.userinfo?.name}</h1>
             <h1>{UserData.userinfo?.email}</h1>
           </div>
@@ -213,7 +212,7 @@ const ConfigUser: React.FC = () => {
               <label htmlFor="userName" onClick={handleOpenModalName}> Alterar nome </label>
             </div>
             <div className="Card">
-              <label htmlFor="Password" onClick={handleOpenModalPass}> Alterar Senha </label>
+              <label htmlFor="Password" onClick={handleOpenModalPass}> Alterar senha </label>
             </div>
 
           </div>
@@ -253,13 +252,13 @@ const ConfigUser: React.FC = () => {
           </div>
           <br />
           <div style={customStyles.div}>
-            <label htmlFor="UserNewPass" style={customStyles.label}><i className="far fa-user" style={customStyles.label} />Nova Senha</label>
+            <label htmlFor="UserNewPass" style={customStyles.label}><i className="far fa-user" style={customStyles.label} />Nova senha</label>
             <input onChange={handle} value={data.npassword} type="password" name="npassword" id="npassword" style={customStyles.input} />
 
           </div>
           <br />
           <div style={customStyles.div}>
-            <label htmlFor="UserNewPass" style={customStyles.label}><i className="far fa-user" style={customStyles.label} />Confirmar Nova Senha</label>
+            <label htmlFor="UserNewPass" style={customStyles.label}><i className="far fa-user" style={customStyles.label} />Confirmar nova senha</label>
             <input onChange={handle} value={data.cpassword} type="password" name="cpassword" id="cpassword" style={customStyles.input} />
 
             <button onClick={submitPass} type="button" style={customStyles.button} >Salvar</button>

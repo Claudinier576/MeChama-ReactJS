@@ -76,7 +76,7 @@ const Container = styled.div`
         top: 20px;
         position: absolute;
         padding: 15px;
-        background-color: var(--white);
+        background-color: white;
         border-radius: 100%;
         box-shadow: 0px 0px 8px 4px black;
     }
@@ -106,7 +106,7 @@ const Container = styled.div`
         top: 20px;
         padding: 20px;
         width: 30%;
-        background-color: var(--white);
+        background-color: white;
         text-align: center;
         position: absolute;
         left: 50%;
@@ -204,7 +204,7 @@ const Container = styled.div`
         border: 2px solid #d21f3c;
         padding: 14px 40px;
         outline: none;
-        color: var(--white);
+        color: white;
         border-radius: 30px;
         cursor: pointer
     }

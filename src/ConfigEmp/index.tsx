@@ -68,7 +68,7 @@ const ConfigEmp: React.FC = () => {
   }
 
   async function submitPass() {
-    await axios.post('https://tn-15mechama-com.umbler.net/userConfig/passEdit', {
+    await axios.post('http://tn-15mechama-com.umbler.net/userConfig/passEdit', {
       npassword: data.npassword,
       cpassword: data.cpassword,
       password: data.password
@@ -91,54 +91,50 @@ const ConfigEmp: React.FC = () => {
 
   const customStyles = {
     content: {
-      top: '50%',
+      top: '56%',
       left: '50%',
       right: 'auto',
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      background: '#1a1d2d',
+      background: 'var(--white)',
       width: '95%',
       height: '85%',
 
     }, button: {
       width: '50%',
       background: 'none',
-      color: '#fff',
+      color: 'var(--text)',
       margin: '15px 0px 15px 0',
-      fontSize: '35px',
+      fontSize: '20px',
       cursor: 'pointer',
-      border: '2px solid #fff',
-      borderRadius: '25px'
+      border: '2px solid var(--text)',
+      borderRadius: '25px',
     },
     div: {
-      color: '#fff',
+      color: 'var(--text)',
       margin: '15px 25px',
       textAlign: 'center' as const,
 
     }, close: {
       background: 'none',
-      color: '#fff',
-      fontSize: '24px'
+      color: 'var(--text)',
+      fontSize: '15px'
     },
     label: {
-
-      color: '#fff',
+      color: 'var(--text)',
       margin: '15px 0px 15px 0',
-      fontSize: '35px',
+      fontSize: '20px',
       cursor: 'pointer',
-
-
     },
     input: {
       background: 'none',
-      color: '#fff',
+      color: 'var(--text)',
       width: '100%',
       height: '25px',
-      fontSize: '24px',
-      borderBottom: '2px solid #fff',
+      fontSize: '15px',
+      borderBottom: '2px solid var(--text)',
     }
-
   };
 
   const [IsOpenName, setIsOpenName] = useState(false);
@@ -172,7 +168,7 @@ const ConfigEmp: React.FC = () => {
 
     async function callAPI() {
 
-      await axios.get('https://tn-15mechama-com.umbler.net/company', {
+      await axios.get('http://tn-15mechama-com.umbler.net/company', {
         headers: {
           tokenUserJWT: DataLocalStorage
         }
@@ -193,28 +189,28 @@ const ConfigEmp: React.FC = () => {
 
         <Config>
           <div className="Card">
-            <Photo src={"https://tn-15mechama-com.umbler.net/images/" + EmpData.empresa?.logo} alt="" />
+            <Photo src={"http://tn-15mechama-com.umbler.net/images/" + EmpData.empresa?.logo} alt="" />
             <h1>{EmpData.user?.name}</h1>
             <h1>{EmpData.user?.email}</h1>
           </div>
 
           <div className="Card">
             <div className="Card">
-              <label htmlFor="Photo"> Alterar Foto </label>
+              <label htmlFor="Photo"> Alterar foto </label>
               <input type="file" name="Photo" id="Photo" accept="image/*" />
             </div>
             <div className="Card">
-              <label htmlFor="userName" onClick={handleOpenModalName}> Alterar Titulo</label>
+              <label htmlFor="userName" onClick={handleOpenModalName}> Alterar título</label>
             </div>
             <div className="Card">
-              <label htmlFor="Password" onClick={handleOpenModalPass}> Alterar Senha </label>
+              <label htmlFor="Password" onClick={handleOpenModalPass}> Alterar senha </label>
             </div>
 
           </div>
 
           <ProductsView>
             {EmpData.products?.map(product => {
-              return <RestauranteProduct id={product.id} name={product.name} description={product.description} value={product.value} img={'https://tn-15mechama-com.umbler.net/images/' + product.img} />
+              return <RestauranteProduct id={product.id} name={product.name} description={product.description} value={product.value} img={'http://tn-15mechama-com.umbler.net/images/' + product.img} />
 
             })}
 
@@ -237,19 +233,18 @@ const ConfigEmp: React.FC = () => {
         <div>
           <button onClick={handleCloseModalPass} style={customStyles.close}>X</button>
           <div style={customStyles.div}>
-            <label htmlFor="UserPass" style={customStyles.label}><i className="far fa-user" />Senha atual</label>
+            <label htmlFor="password" style={customStyles.label}><i className="far fa-user" />Senha atual</label>
             <input type="password" onChange={handle} value={data.password} name="password" id="password" style={customStyles.input} />
-
           </div>
           <br />
           <div style={customStyles.div}>
-            <label htmlFor="UserNewPass" style={customStyles.label}><i className="far fa-user" style={customStyles.label} />Nova Senha</label>
+            <label htmlFor="npassword" style={customStyles.label}><i className="far fa-user" style={customStyles.label} />Nova senha</label>
             <input onChange={handle} value={data.npassword} type="password" name="npassword" id="npassword" style={customStyles.input} />
 
           </div>
           <br />
           <div style={customStyles.div}>
-            <label htmlFor="UserNewPass" style={customStyles.label}><i className="far fa-user" style={customStyles.label} />Confirmar Nova Senha</label>
+            <label htmlFor="cpassword" style={customStyles.label}><i className="far fa-user" style={customStyles.label} />Confirmar nova senha</label>
             <input onChange={handle} value={data.cpassword} type="password" name="cpassword" id="cpassword" style={customStyles.input} />
 
             <button onClick={submitPass} type="button" style={customStyles.button} >Salvar</button>
@@ -269,7 +264,7 @@ const ConfigEmp: React.FC = () => {
       >
         <button onClick={handleCloseModalName} style={customStyles.close}>X</button>
         <div style={customStyles.div}>
-          <label htmlFor="UserName" style={customStyles.close}><i className="far fa-user" />Digite o Nome da empreasa</label>
+          <label htmlFor="UserName" style={customStyles.close}><i className="far fa-user" />Digite o nome da empreasa</label>
           <input type="text" style={customStyles.input} name="UserName" id="UserName" />
           <button type="submit" style={customStyles.button}>Salvar</button>
         </div>

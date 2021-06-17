@@ -13,8 +13,8 @@ export const Button = styled.button`
   font-size: 16px;
 
   &:hover,&.active{
-    background-color: #d21f3c3d;
-    border: 2px solid #3a4660;
+    background-color: var(--pinkBackground);
+    border: 2px solid var(--text);
     div{
       display: flex;
     }
@@ -71,7 +71,7 @@ export const Itens = styled.div`
           border-radius: 4px;
       }
       ::-webkit-scrollbar-track {
-          background-color: #d21f3c3d;
+          background-color: var(--pinkBackground);
       }
 
     a{

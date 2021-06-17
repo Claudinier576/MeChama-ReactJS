@@ -23,8 +23,8 @@ export const Menu = styled.a`
     box-shadow: 0px 0px 10px 0px #00000042;
 
     &:hover,&.active{
-    background-color: #d21f3c3d;
-    border: 2px solid #3a4660;
+    background-color: var(--pinkBackground);
+    border: 2px solid var(--text);
     }
 
     h1{

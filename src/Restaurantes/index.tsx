@@ -15,7 +15,7 @@ const Restaurantes: React.FC = () => {
   const [RestauranteData,setRestauranteData] = useState<Restaurante>();
 
   useEffect(()=> {
-      fetch('https://tn-15mechama-com.umbler.net').then(
+      fetch('http://tn-15mechama-com.umbler.net').then(
           response => response.json()).then(data =>  setRestauranteData(data))
   },[]);
    
@@ -25,7 +25,7 @@ const Restaurantes: React.FC = () => {
         return(
           <Menu key={emp.id} href={'/restaurantes/'+emp.id}>
             <div>
-              <img src={'https://tn-15mechama-com.umbler.net/images/'+ emp.logo} alt="compLogoImg" />
+              <img src={'http://tn-15mechama-com.umbler.net/images/'+ emp.logo} alt="compLogoImg" />
               <h1>{emp.name}</h1>
             </div>
             <h2>{emp.description}</h2>
