@@ -220,17 +220,16 @@ const ConfigUser: React.FC = () => {
 
 
         </Config>
-        <HistoriPurchases>{UserData.purchaseHistory?.map((item: ItemHistoryProps, i: any) => {
+        <HistoriPurchases>
+          <h1 className="purchasesTitle">Pedidos</h1>
+          
+          {UserData.purchaseHistory?.map((item: ItemHistoryProps, i: any) => {
 
           return (<ItemPurchase key={i}>
             <h1 className="title">{item.companyName}</h1>
             <h2 className="nameProduct">{item.productName} {item.productQuantity}x</h2>
             <h3 className="value">R$ {item.productValue}</h3>
             <p className="Date">{item.productDate}</p>
-
-
-
-
           </ItemPurchase>)
 
         })}</HistoriPurchases>
