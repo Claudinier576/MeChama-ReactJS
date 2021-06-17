@@ -29,7 +29,10 @@ const Login: React.FC = () => {
       }else {
         history.push("/login")
         setErrorLogin(true)
-        document.querySelectorAll('input').forEach(input => (input.value = ""))
+        setData({
+          email: "",
+          password: "",
+        })
       }
     })
   }

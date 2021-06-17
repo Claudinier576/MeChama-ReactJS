@@ -169,17 +169,17 @@ const ConfigEmp: React.FC = () => {
     }
   };
 
-  const [IsOpenName, setIsOpenName] = useState(false);
+  // const [IsOpenName, setIsOpenName] = useState(false);
   const [IsOpenPass, setIsOpenPass] = useState(false);
+  
+  // function handleCloseModalName() {
 
-  function handleCloseModalName() {
+  //   setIsOpenName(false);
 
-    setIsOpenName(false);
-
-  }
-  function handleOpenModalName() {
-    setIsOpenName(true);
-  }
+  // }
+  // function handleOpenModalName() {
+  //   setIsOpenName(true);
+  // }
   function handleCloseModalPass() {
 
     setIsOpenPass(false);
@@ -188,7 +188,6 @@ const ConfigEmp: React.FC = () => {
   function handleOpenModalPass() {
     setIsOpenPass(true);
   }
-
 
   const [EmpData, setEmpData] = useState<EmpDataProps>({});
 
@@ -207,7 +206,6 @@ const ConfigEmp: React.FC = () => {
       }).then(response => setEmpData(response.data));
     }
     callAPI();
-    console.log('aaaaaaaaa',EmpData);
 
 
   }, [DataLocalStorage]);
@@ -221,9 +219,11 @@ const ConfigEmp: React.FC = () => {
 
         <Config>
           <div className="Card">
-            <Photo src={"http://tn-15mechama-com.umbler.net/images/" + EmpData.empresa?.logo} alt="" />
-            <h1>{EmpData.user?.name}</h1>
-            <h1>{EmpData.user?.email}</h1>
+            <div className="card-align">
+              <Photo src={"http://tn-15mechama-com.umbler.net/images/" + EmpData.empresa?.logo} alt="" />
+              <h1>{EmpData.user?.name}</h1>
+            </div>
+            <h1 className="email-align">{EmpData.user?.email}</h1>
           </div>
 
           <div className="Card">
@@ -231,9 +231,9 @@ const ConfigEmp: React.FC = () => {
               <label htmlFor="Photo"> Alterar foto </label>
               <input type="file" name="Photo" id="Photo" accept="image/*" />
             </div>
-            <div className="Card">
+            {/* <div className="Card">
               <label htmlFor="userName" onClick={handleOpenModalName}> Alterar título</label>
-            </div>
+            </div> */}
             <div className="Card">
               <label htmlFor="Password" onClick={handleOpenModalPass}> Alterar senha </label>
             </div>
@@ -289,7 +289,7 @@ const ConfigEmp: React.FC = () => {
 
       </ReactModal>
 
-      <ReactModal
+      {/* <ReactModal
         onRequestClose={handleCloseModalName}
         isOpen={IsOpenName}
         style={customStyles}
@@ -302,7 +302,7 @@ const ConfigEmp: React.FC = () => {
         </div>
 
 
-      </ReactModal>
+      </ReactModal> */}
     </>
 
   );
