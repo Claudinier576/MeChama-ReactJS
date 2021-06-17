@@ -6,7 +6,7 @@ interface PropsHeader {
   user:{
     name: string;
     accontCredits: string;
-    imgPerfile: ""
+    imgPerfile: string;
   }
 }
 
@@ -32,11 +32,12 @@ const UserProfileHeader: React.FC<PropsHeader> = ({user}) => {
   }
   useEffect(() => {callAPI()}, [])
 
+  console.log('Empresa: ' + isCompany + ' usuário: ' + isUser)
+
   if(isUser === true && (localStorage.getItem('tokenUserJWT') || "").length !== 0){
     return (
       <UserInfos href={'/User/me/'+user.name}>
-        {/* <img className="UserImg" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="userInfosImg" /> */}
-        <img className="UserImg" src={'http://tn-15mechama-com.umbler.net/images/'+ user.imgPerfile}  alt="userInfosImg" />
+        <img className="UserImg" src={'http://tn-15mechama-com.umbler.net/images/'+ user.imgPerfile} alt="userInfosImg" />
         <h1>{user.name}</h1>
         <h2>R${user.accontCredits}</h2>
       </UserInfos>
@@ -50,7 +51,7 @@ const UserProfileHeader: React.FC<PropsHeader> = ({user}) => {
       )
   } else {
     return (
-      <UnloggedInfo href={'/Emp/me/'+user.name}>
+      <UnloggedInfo href={'/User/me/'+user.name}>
         <img className="UserImg" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="userInfosImg" />
       </UnloggedInfo>
     )

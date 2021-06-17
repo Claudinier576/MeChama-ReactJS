@@ -10,7 +10,7 @@ interface PropsHeader {
   user:{
     name: string;
     accontCredits: string;
-    imgPerfile: "";
+    imgPerfile: string;
   }
 }
 
