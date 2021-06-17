@@ -32,7 +32,7 @@ const NewProduct: React.FC = () => {
       
  
       
-            await axios.post('https://tn-15mechama-com.umbler.net/company',{
+            await axios.post('http://tn-15mechama-com.umbler.net/company',{
                 ...data
             }, {
               headers: {
@@ -68,21 +68,22 @@ const NewProduct: React.FC = () => {
 
     return (
         <Container>
-            <div>
-                <label htmlFor="">Nome do Produto </label>
-                <input type="text" onChange={handle} id="name" placeholder="nome do produto" />
+            <h1>Adicionar produto</h1>
+            <div className="form-align">
+                <label htmlFor="name">Nome do Produto </label>
+                <input type="text" onChange={handle} id="name" placeholder="nome do produto" className="adjust-input"/>
             </div>
-            <div>
-                <label htmlFor="">Valor do Produto</label>
-                <input type="number" onChange={handle}  id="value" placeholder="Valor do produto" />
+            <div className="form-align">
+                <label htmlFor="value">Valor do Produto</label>
+                <input type="number" onChange={handle}  id="value" placeholder="Valor do produto" className="adjust-input"/>
             </div>
-            <div>
-                <label htmlFor="">Descrição do Produto</label>
-                <input type="text" onChange={handle}  id="description" placeholder="Descrição do produto" />
+            <div className="form-align">
+                <label htmlFor="description">Descrição do Produto</label>
+                <input type="text" onChange={handle}  id="description" placeholder="Descrição do produto" className="adjust-input"/>
             </div>
-            <div>
-                <label htmlFor="">Adicionais do Produto</label>
-                <input type="text" onChange={handle} id="add" placeholder="Adicionais do produto" />
+            <div className="form-align">
+                <label htmlFor="add">Adicionais do Produto</label>
+                <input type="text" onChange={handle} id="add" placeholder="Adicionais do produto" className="adjust-input"/>
             </div>
             <div className="avatar-upload">
                 <div className="avatar-edit">
@@ -97,7 +98,7 @@ const NewProduct: React.FC = () => {
                 </div>
             </div>
 
-            <button onClick={SaveNewProduct}>Adicionar Produto</button>
+            <button onClick={SaveNewProduct}>Confirmar</button>
         </Container>
     );
 }

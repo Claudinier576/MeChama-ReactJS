@@ -15,6 +15,7 @@ export const Container = styled.div`
     a,a:visited,a:link{
         text-decoration:none;
         color: var(--pinkText);
+        margin-top: 5px;
     }
 
     @media(max-width:  720px){
