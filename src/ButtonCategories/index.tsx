@@ -19,7 +19,7 @@ const ButtonCategories: React.FC = () => {
         <a href="/categoria/Chinesa">Comida Chinesa</a>
         <a href="/categoria/Mexicana">Comida Mexicana</a>
         <a href="/categoria/Japonesa">Comida Japonesa</a>
-        <a href="/categoria/Pizzas">Pizzas</a>
+        <a href="/categoria/Pizza">Pizzas</a>
         <a href="/categoria/Chocolates">Chocolates</a>
         <a href="/categoria/Bebidas">Bebidas</a>
       </Itens>

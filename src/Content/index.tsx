@@ -9,6 +9,7 @@ import Cart from '../Cart';
 import ProtectedRoute from '../services/protectedRoute'
 import ConfigEmp from '../ConfigEmp';
 import axios from 'axios'
+import ProductCategory from '../ProductCategory';
 
 const Content = () => {
 
@@ -43,6 +44,9 @@ const Content = () => {
       
       <Route exact path="/Search/:Search">
        <ProductSearch/>
+      </Route>
+      <Route exact path="/categoria/:Categoria">
+      <ProductCategory></ProductCategory>
       </Route>
 
       <ProtectedRoute path="/User/me" component={ConfigUser} isUser={isUser} isCompany={isCompany}/>
