@@ -8,7 +8,7 @@ import axios from 'axios'
 interface userLabelProps {
   name: string,
   accontCredits: string,
-  imgPerfile: ""
+  imgPerfile: string;
 }
 
 const Layout: React.FC = () => {
