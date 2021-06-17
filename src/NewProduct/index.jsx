@@ -7,7 +7,6 @@ import { Container } from './styles';
 
 
 
-
 const NewProduct = () => {
 
     function handle(e) {
