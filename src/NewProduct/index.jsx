@@ -8,10 +8,10 @@ import { Container } from './styles';
 
 
 
-const NewProduct: React.FC = () => {
+const NewProduct = () => {
 
-    function handle(e: any) {
-        const newData: any = { ...data }
+    function handle(e) {
+        const newData = { ...data }
         newData[e.target.id] = e.target.value
         setData(newData)
       }
@@ -22,13 +22,15 @@ const NewProduct: React.FC = () => {
     value: "",
     description: "",
     add: "",
-    img:"",
+    img: {}
   })
 
     async function SaveNewProduct(){
 
         const DataLocalStorage = localStorage.getItem('tokenUserJWT');
 
+        data.img = document.getElementById("img").files[0];
+        
       
  
       
@@ -50,12 +52,12 @@ const NewProduct: React.FC = () => {
     }
 
     const [imagePrev, setimagePrev] = useState('https://www.oximig.com.br/arquivos/fotos/interna_1499455670.png');
-    function readURL(input: any) {
+    function readURL(input) {
 
         if (input.files && input.files[0]) {
             var reader = new FileReader();
 
-            reader.onload = function (e: any) {
+            reader.onload = function (e) {
                 console.log(e);
 
                 setimagePrev(e.target.result);
