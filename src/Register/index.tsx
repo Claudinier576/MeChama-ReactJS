@@ -27,6 +27,7 @@ const Register: React.FC = () => {
       password: data.password,
       cpassword: data.cpassword,
       phone: data.phone,
+ 
     }).then(res=>{
       alert("Cadastro realizado com sucesso!")
       history.push("/login")
@@ -81,7 +82,7 @@ const Register: React.FC = () => {
                   <RequiredField>{errors.cpassword && "Senhas devem ser idênticas."}</RequiredField>
                   <div className="line line-align">
                     <label className="label-align" htmlFor="phone">Número: </label>
-                    <input className="input-align" id="phone" type="text" placeholder="(**)9****-****" {...register('phone')}/>
+                    <input className="input-align"  id="phone" type="text" placeholder="(**)9****-****" {...register('phone')}/>
                   </div>
                   <RequiredField>{errors.phone?.message}</RequiredField>
                 </div>
