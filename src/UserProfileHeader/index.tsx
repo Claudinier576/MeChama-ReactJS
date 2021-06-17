@@ -6,6 +6,7 @@ interface PropsHeader {
   user:{
     name: string;
     accontCredits: string;
+    imgPerfile: ""
   }
 }
 
@@ -34,7 +35,8 @@ const UserProfileHeader: React.FC<PropsHeader> = ({user}) => {
   if(isUser === true && (localStorage.getItem('tokenUserJWT') || "").length !== 0){
     return (
       <UserInfos href={'/User/me/'+user.name}>
-        <img className="UserImg" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="userInfosImg" />
+        {/* <img className="UserImg" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="userInfosImg" /> */}
+        <img className="UserImg" src={'http://tn-15mechama-com.umbler.net/images/'+ user.imgPerfile}  alt="userInfosImg" />
         <h1>{user.name}</h1>
         <h2>R${user.accontCredits}</h2>
       </UserInfos>
@@ -42,7 +44,7 @@ const UserProfileHeader: React.FC<PropsHeader> = ({user}) => {
   } else if(isCompany === true && (localStorage.getItem('tokenUserJWT') || "").length !== 0){
       return (
         <CompanyInfos href={'/Emp/me/'+user.name}>
-          <img className="UserImg" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="userInfosImg" />
+          <img className="UserImg" src={'http://tn-15mechama-com.umbler.net/images/'+ user.imgPerfile} alt="userInfosImg" />
           <h1>{user.name}</h1>
         </CompanyInfos>
       )

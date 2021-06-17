@@ -80,10 +80,10 @@ const NewProduct = () => {
                 <label htmlFor="description">Descrição do Produto</label>
                 <input type="text" onChange={handle}  id="description" placeholder="Descrição do produto" className="adjust-input"/>
             </div>
-            <div className="form-align">
+            {/* <div className="form-align">
                 <label htmlFor="add">Adicionais do Produto</label>
                 <input type="text" onChange={handle} id="add" placeholder="Adicionais do produto" className="adjust-input"/>
-            </div>
+            </div> */}
             <div className="avatar-upload">
                 <div className="avatar-edit">
                     <input type='file' id="img" accept=".png, .jpg, .jpeg" onChange={(function () {

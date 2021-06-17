@@ -8,10 +8,11 @@ import axios from 'axios'
 interface userLabelProps {
   name: string,
   accontCredits: string,
+  imgPerfile: ""
 }
 
 const Layout: React.FC = () => {
-  const [userData, setUserData] = useState<userLabelProps>({name: "", accontCredits: ""});
+  const [userData, setUserData] = useState<userLabelProps>({name: "", accontCredits: "", imgPerfile: ""});
   
   useEffect(() => {
     axios.get('http://tn-15mechama-com.umbler.net/userConfig', {
