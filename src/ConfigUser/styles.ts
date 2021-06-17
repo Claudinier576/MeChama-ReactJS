@@ -42,14 +42,20 @@ export const HistoriPurchases = styled.div`
     min-height: 195px;
     display: flex;
     flex-direction: column;
+    .purchasesTitle {
+        color: var(--text);
+        font-size: 25px;
+        align-self: center;
+        margin: 15px;
+    }
 `
 export const ItemPurchase = styled.div`
     display: grid;
     margin: 5px;
-    border: 2px solid black;
     border-radius: 15px;
-    color: var(--white);
+    color: var(--text);
     padding:8px;
+    box-shadow: 0px 0px 5px 0px #00000042;
 
     grid-template-columns:  auto auto auto;
     grid-template-rows:  auto auto auto;
@@ -70,9 +76,18 @@ export const ItemPurchase = styled.div`
     & .value {
         grid-area: Value;
         color: var(--green);
+        font-size: 15px;
     }
     & .Date {
         grid-area: DATE;
+    }
+    h2 {
+        font-size: 15px;
+        color: var(--subText);
+    }
+    h1 {
+        color: var(--text);
+        font-size: 20px;
     }
 `
 export const Config = styled.div` 
