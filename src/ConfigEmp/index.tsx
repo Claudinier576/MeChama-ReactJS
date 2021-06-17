@@ -242,7 +242,7 @@ const ConfigEmp: React.FC = () => {
 
           <ProductsView>
             {EmpData.products?.map(product => {
-              return <RestauranteProduct id={product.id} name={product.name} description={product.description} value={product.value} img={'http://tn-15mechama-com.umbler.net/images/' + product.img} />
+              return <RestauranteProduct id={product.id} name={product.name} description={product.description} value={product.value} img={product.img} />
 
             })}
 

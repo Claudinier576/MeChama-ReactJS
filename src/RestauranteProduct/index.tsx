@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ProductCard } from './styles';
 import ReactModal from 'react-modal';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 interface Props{
   id: number,
@@ -30,6 +31,26 @@ const RestauranteProduct: React.FC<Props> = ({id,name,description,value,img}) =>
 
   },[])
   
+
+async function deleteItem(idProduct: number){
+  const DataLocalStorage = localStorage.getItem('tokenUserJWT');
+    console.log('this',idProduct);
+
+    await axios.post('http://tn-15mechama-com.umbler.net/company/r/remove/'+id, {
+      id, 
+    
+  }, {
+      headers: {
+          tokenUserJWT: DataLocalStorage
+      }
+  }).then((response) => {
+      if (!response.data.mansageError) {
+        window.location.reload();
+      }
+  });
+
+    
+  }
 
   const [isOpenModal, setIsOpenModal] = useState(false);
 
@@ -112,7 +133,7 @@ const RestauranteProduct: React.FC<Props> = ({id,name,description,value,img}) =>
             <h1 style={customStyles.h1}>{name}</h1>
             <h2 style={customStyles.h2}>{description}</h2>
             <span style={customStyles.span}>R$: {value.toLocaleString()}</span>
-            <button>Deletar</button>
+            <button onClick={()=>{deleteItem(id)}}>Deletar</button>
             <br />
             <button>Salvar Alterações</button>
           </div>

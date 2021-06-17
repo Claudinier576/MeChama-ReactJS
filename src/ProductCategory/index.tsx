@@ -45,7 +45,7 @@ const ProductCategory: React.FC = () => {
             id={product.id}
             description={product.description}
             value={product.value}
-            img={'http://tn-15mechama-com.umbler.net/images/'+ product.img} />
+            img={product.img} />
           );
         }) : ''}
       </ProductsView>

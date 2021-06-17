@@ -22,6 +22,8 @@ const NewProduct = () => {
         description: "",
         add: "",
         img: {},
+        imgLink: ""
+        
     })
 
     async function SaveNewProduct() {
@@ -47,29 +49,31 @@ const NewProduct = () => {
 
 
       const imgUploadResponse = await  fetch("https://api.imgur.com/3/image", requestOptions)
-            .then(response => response.text())
+            .then(response => response.json()).then(res => data.img = res.data.link)
             .catch(error => console.log('error', error));
 
-            debugger;
-        
+            console.log(data,imgUploadResponse);
+
+          
        
 
         await axios.post('http://tn-15mechama-com.umbler.net/company', {
-            ...data
+            ...data, 
+          
         }, {
             headers: {
                 tokenUserJWT: DataLocalStorage
             }
         }).then((response) => {
             if (!response.data.mansageError) {
-               // window.location.reload();
+              window.location.reload();
             }
         });
 
 
         console.log(data);
 
-
+       
 
     }
 
@@ -131,7 +135,3 @@ const NewProduct = () => {
 }
 
 export default NewProduct;
-
-
-
-
