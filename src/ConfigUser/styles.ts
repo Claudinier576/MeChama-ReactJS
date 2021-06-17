@@ -121,6 +121,13 @@ export const Config = styled.div`
         align-items: center;
         justify-content: center;
     }
+    .card-align {
+        display: inline-flex;
+        align-items: center;
+    }
+    .email-align{
+        width: 100%;
+    }
 `
 export const Photo = styled.img` 
     border-radius: 50%;

@@ -184,6 +184,18 @@ export const Config = styled.div`
         align-items: center;
         justify-content: center;
     }
+    .card-align {
+        display: inline-flex;
+        align-items: center;
+    }
+    .email-align{
+        width: 100%;
+    }
+
+    .edit{
+        width: 1000px;
+        height: 1000px;
+    }
 `
 export const Photo = styled.img` 
     border-radius: 50%;

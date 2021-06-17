@@ -148,17 +148,17 @@ const ConfigUser: React.FC = () => {
 
   };
 
-  const [IsOpenName, setIsOpenName] = useState(false);
+  // const [IsOpenName, setIsOpenName] = useState(false);
   const [IsOpenPass, setIsOpenPass] = useState(false);
 
-  function handleCloseModalName() {
+  // function handleCloseModalName() {
 
-    setIsOpenName(false);
+  //   setIsOpenName(false);
 
-  }
-  function handleOpenModalName() {
-    setIsOpenName(true);
-  }
+  // }
+  // function handleOpenModalName() {
+  //   setIsOpenName(true);
+  // }
   function handleCloseModalPass() {
 
     setIsOpenPass(false);
@@ -198,9 +198,11 @@ const ConfigUser: React.FC = () => {
 
         <Config>
           <div className="Card">
-            <Photo src={"http://tn-15mechama-com.umbler.net/images/" + UserData.userinfo?.imgPerfile} alt="" />
-            <h1>{UserData.userinfo?.name}</h1>
-            <h1>{UserData.userinfo?.email}</h1>
+            <div className="card-align">
+              <Photo src={"http://tn-15mechama-com.umbler.net/images/" + UserData.userinfo?.imgPerfile} alt="" />
+              <h1>{UserData.userinfo?.name}</h1>
+            </div> 
+            <h1 className="email-align">{UserData.userinfo?.email}</h1>
           </div>
 
           <div className="Card">
@@ -208,9 +210,9 @@ const ConfigUser: React.FC = () => {
               <label htmlFor="Photo"> Alterar Foto </label>
               <input type="file" name="Photo" id="Photo" accept="image/*" />
             </div>
-            <div className="Card">
+            {/* <div className="Card">
               <label htmlFor="userName" onClick={handleOpenModalName}> Alterar nome </label>
-            </div>
+            </div> */}
             <div className="Card">
               <label htmlFor="Password" onClick={handleOpenModalPass}> Alterar senha </label>
             </div>
@@ -271,7 +273,7 @@ const ConfigUser: React.FC = () => {
       </ReactModal>
 
 
-      <ReactModal
+      {/* <ReactModal
         onRequestClose={handleCloseModalName}
         isOpen={IsOpenName}
         style={customStyles}
@@ -284,7 +286,7 @@ const ConfigUser: React.FC = () => {
         </div>
 
 
-      </ReactModal>
+      </ReactModal> */}
     </>
 
   );
