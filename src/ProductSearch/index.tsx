@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import RestauranteProduct from '../RestauranteProduct';
-import { Container, ProductsView } from './styles';
+import { ProductsView } from './styles';
 
 interface PropR {
   Search: string;
@@ -26,12 +26,12 @@ const ProductSearch: React.FC = () => {
   const Products: PropR = useParams();
   
   useEffect(() => {
-    fetch('https://tn-15mechama-com.umbler.net/Products').then(
+    fetch('http://tn-15mechama-com.umbler.net/Products').then(
       response => response.json()).then(data => setProductsData(data))
   }, [Products]);
 
   return (
-    <Container>
+    <>
       <ProductsView>
         {ProductsData?.products ?ProductsData.products.filter((product) =>{
           return  product.name.toUpperCase().includes(Products.Search.toString().toUpperCase());
@@ -42,11 +42,11 @@ const ProductSearch: React.FC = () => {
             id={product.id}
             description={product.description}
             value={product.value}
-            img={'https://tn-15mechama-com.umbler.net/images/'+ product.img} />
+            img={'http://tn-15mechama-com.umbler.net/images/'+ product.img} />
           );
         }) : ''}
       </ProductsView>
-    </Container>
+    </>
   );
 }
 

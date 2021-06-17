@@ -2,12 +2,17 @@ import styled from 'styled-components'
 
 export const Container = styled.header`
   grid-area: H;
-  background-color: var(--BGColor);
+  background-color: var(--white);
   display: flex;
   justify-content: space-between;
   align-items:center;
   padding: 10px;
-  
+  height: 62px;
+  width: 100%;
+  position: fixed;
+  border-bottom: 1px solid var(--pink);
+  z-index: 1;
+
   .oneDiv{
     display: flex;
   }
@@ -30,7 +35,13 @@ export const Container = styled.header`
       height: 30px!important;
     }
   }
+  @media (max-width: 500px) {
+    img {
+      width: 25px!important;
+      height: 25px!important;
+    }
+  }
   @media (max-width:400px) {
-    padding: 0;
+    padding: 2;
   }
 `

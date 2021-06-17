@@ -3,11 +3,12 @@ import {createGlobalStyle} from "styled-components";
 export default createGlobalStyle`
 :root {
     --white: #fff;
-    --BGColor: #1a1d2d;
-    --BGContent: #252836;
-    --gray: #a9a9a9;
-    --green: #0f0;
-    --link: #5d80d6;
+    --green: #00d000;
+    --text: #3a4660;
+    --subText: #3a466085;
+    --pinkText: #d21f3c4a;
+    --pink: #d21f3c0a;
+    --pinkBackground: #d21f3c3d;
  
   }
     *{

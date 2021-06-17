@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Button = styled.button`
-  color: var(--link);
+  color: var(--text);
   background-color: transparent;
   margin-left: 5px;
   cursor: pointer;
@@ -13,8 +13,8 @@ export const Button = styled.button`
   font-size: 16px;
 
   &:hover,&.active{
-    background-color: var(--BGContent);
-    border: 2px solid #000;
+    background-color: var(--pinkBackground);
+    border: 2px solid var(--text);
     div{
       display: flex;
     }
@@ -49,8 +49,8 @@ export const Itens = styled.div`
   }
 
   &.active{
-    background-color: #1a1d2d;
-    border: 1px solid var(--BGColor);
+    background-color: var(--white);
+    border: 1px solid #d21f3c12;
     border-top: none;
     transition: background-color .4s,border .2s;
     padding: 15px;
@@ -67,21 +67,21 @@ export const Itens = styled.div`
           width: 6px;
       }
       ::-webkit-scrollbar-thumb {
-          background-color: var(--BGColor);
+          background-color: #d21f3c12;
           border-radius: 4px;
       }
       ::-webkit-scrollbar-track {
-          background-color: var(--BGColor);
+          background-color: var(--pinkBackground);
       }
 
     a{
-      color: var(--link);
+      color: var(--text);
       margin-top: 8px;
       text-decoration: none;
     }
 
     a:hover{
-      color: var(--gray);
+      color: var(--subText);
       margin-top: 8px;
       text-decoration: none;
     }

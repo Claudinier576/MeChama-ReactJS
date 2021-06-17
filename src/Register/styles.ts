@@ -27,7 +27,7 @@ const RegisterStyle = styled.div`
     border: 2px solid #d21f3c;
     padding: 14px 40px;
     outline: none;
-    color: white;
+    color: var(--white);
     border-radius: 30px;
     cursor: pointer
 }

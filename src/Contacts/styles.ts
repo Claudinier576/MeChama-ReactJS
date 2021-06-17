@@ -9,13 +9,14 @@ export const Container = styled.div`
     margin-top: 10px;
 
     h1{
-        color:var(--white);
+        color: var(--pinkText);
         
     }
 
     a,a:visited,a:link{
         text-decoration:none;
-        color: var(--gray);
+        color: var(--pinkText);
+        margin-top: 5px;
     }
 
     @media(max-width: 720px){
